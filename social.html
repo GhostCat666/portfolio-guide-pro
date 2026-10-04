@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>กิจกรรมเพื่อสังคม | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .portfolio-img:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-prev {
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-prev:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-people"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีทำหน้า <span class="text-accent">กิจกรรมเพื่อสังคม</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">การนำเสนองานสภานักเรียน จิตอาสา และภาวะผู้นำ (Leadership) เพื่อสะท้อนตัวตนรอบด้าน</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row align-items-stretch g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูป P1.jpg -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปส/P1.jpg" alt="Social Activity Example 1" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">🤝 แนวทางการนำเสนอกิจกรรมจิตอาสา</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">สะท้อนจิตสาธารณะ:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เน้นกิจกรรมที่แสดงถึงความเสียสละ การช่วยเหลือสังคม หรือการพัฒนาชุมชนรอบตัวอย่างแท้จริง</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ภาพถ่ายการปฏิบัติงานจริง:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ควรมีรูปถ่ายในขณะกำลังปฏิบัติกิจกรรมจริง (Action shot) เพื่อความน่าเชื่อถือ มากกว่าการมีแค่เกียรติบัตรอย่างเดียว</span></li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">ผลลัพธ์และคุณค่าที่ได้รับ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">อธิบายว่ากิจกรรมนั้นๆ สร้างประโยชน์อะไรให้สังคม และหล่อหลอมทัศนคติที่ดีอย่างไรให้กับตัวเรา</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">⭐ การแสดงภาวะผู้นำ (Leadership & Council)</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">บทบาทในสภานักเรียนหรือโรงเรียน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">หากมีประสบการณ์เป็นประธานนักเรียน คณะกรรมการสภานักเรียน หรือหัวหน้ากลุ่ม ให้ชูบทบาทการบริหารจัดการและการแก้ปัญหาเฉพาะหน้า</span></li>
+            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ทักษะการทำงานร่วมกับผู้อื่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แสดงให้กรรมการเห็นว่าเราสามารถประสานงาน สื่อสาร และนำพาทีมไปสู่ความสำเร็จได้</span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning mb-0" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section3_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s3_desc">
+            มหาวิทยาลัยไม่ได้มองหาแค่เด็กเรียนเก่ง แต่มองหา "ผู้นำในอนาคต" ที่พร้อมจะขับเคลื่อนสังคม การใส่กิจกรรมเพื่อสังคมและภาวะผู้นำจะช่วยให้พอร์ตของคุณดูสมบูรณ์แบบรอบด้านครับ
+          </p>
+          
+          <!-- ปุ่มนำทาง ไป-กลับ -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+            <a href="self-dev.html" class="btn btn-prev rounded-pill px-4 py-2 fw-bold text-center">
+              <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_prev">กลับหน้าก่อนหน้า (กิจกรรมพัฒนาตัวเอง)</span>
+            </a>
+            <a href="backcover.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold text-center">
+              <span data-i18n="btn_next">วิธีทำหน้าถัดไป (ปกหลัง)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูป P2.jpg -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปส/P2.jpg" alt="Social Activity Example 2" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีทำหน้า <span class="text-accent">กิจกรรมเพื่อสังคม</span>',
+        page_subtitle: "การนำเสนองานสภานักเรียน จิตอาสา และภาวะผู้นำ (Leadership) เพื่อสะท้อนตัวตนรอบด้าน",
+        section1_title: "🤝 แนวทางการนำเสนอกิจกรรมจิตอาสา",
+        s1_l1_title: "สะท้อนจิตสาธารณะ:",
+        s1_l1_desc: "เน้นกิจกรรมที่แสดงถึงความเสียสละ การช่วยเหลือสังคม หรือการพัฒนาชุมชนรอบตัวอย่างแท้จริง",
+        s1_l2_title: "ภาพถ่ายการปฏิบัติงานจริง:",
+        s1_l2_desc: "ควรมีรูปถ่ายในขณะกำลังปฏิบัติกิจกรรมจริง (Action shot) เพื่อความน่าเชื่อถือ มากกว่าการมีแค่เกียรติบัตรอย่างเดียว",
+        s1_l3_title: "ผลลัพธ์และคุณค่าที่ได้รับ:",
+        s1_l3_desc: "อธิบายว่ากิจกรรมนั้นๆ สร้างประโยชน์อะไรให้สังคม และหล่อหลอมทัศนคติที่ดีอย่างไรให้กับตัวเรา",
+        section2_title: "⭐ การแสดงภาวะผู้นำ (Leadership & Council)",
+        s2_l1_title: "บทบาทในสภานักเรียนหรือโรงเรียน:",
+        s2_l1_desc: "หากมีประสบการณ์เป็นประธานนักเรียน คณะกรรมการสภานักเรียน หรือหัวหน้ากลุ่ม ให้ชูบทบาทการบริหารจัดการและการแก้ปัญหาเฉพาะหน้า",
+        s2_l2_title: "ทักษะการทำงานร่วมกับผู้อื่น:",
+        s2_l2_desc: "แสดงให้กรรมการเห็นว่าเราสามารถประสานงาน สื่อสาร และนำพาทีมไปสู่ความสำเร็จได้",
+        section3_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s3_desc: "มหาวิทยาลัยไม่ได้มองหาแค่เด็กเรียนเก่ง แต่มองหา \"ผู้นำในอนาคต\" ที่พร้อมจะขับเคลื่อนสังคม การใส่กิจกรรมเพื่อสังคมและภาวะผู้นำจะช่วยให้พอร์ตของคุณดูสมบูรณ์แบบรอบด้านครับ",
+        btn_prev: "กลับหน้าก่อนหน้า (กิจกรรมพัฒนาตัวเอง)",
+        btn_next: "วิธีทำหน้าถัดไป (ปกหลัง)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to make <span class="text-accent">Social Activities Page</span>',
+        page_subtitle: "Presenting student council work, volunteering, and leadership skills to reflect your well-rounded profile",
+        section1_title: "🤝 Guidelines for Volunteering Activities",
+        s1_l1_title: "Reflect Public Mind:",
+        s1_l1_desc: "Focus on activities demonstrating sacrifice, social assistance, or genuine community development.",
+        s1_l2_title: "Action Photos:",
+        s1_l2_desc: "Include action shots of you performing the activities for credibility rather than just certificates.",
+        s1_l3_title: "Results & Value:",
+        s1_l3_desc: "Explain how the activity benefited society and shaped your positive attitude.",
+        section2_title: "⭐ Demonstrating Leadership (Leadership & Council)",
+        s2_l1_title: "School or Student Council Roles:",
+        s2_l1_desc: "Highlight management roles and problem-solving skills if you served as student council president, committee member, or team leader.",
+        s2_l2_title: "Teamwork Skills:",
+        s2_l2_desc: "Show the committee that you can coordinate, communicate, and lead a team to success.",
+        section3_title: "💡 Pro Tip",
+        s3_desc: "Universities don't just look for smart students; they look for \"future leaders\" ready to drive society forward. Social activities complete your portfolio.",
+        btn_prev: "Previous: Self-Development",
+        btn_next: "Next: Back Cover"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何制作 <span class="text-accent">社会活动页面</span>',
+        page_subtitle: "展示学生会工作、志愿服务及领导力，全面体现个人综合素质",
+        section1_title: "🤝 志愿服务活动指南",
+        s1_l1_title: "体现公益精神:",
+        s1_l1_desc: "重点关注体现奉献精神、社会援助或社区发展的真实活动。",
+        s1_l2_title: "行动照片:",
+        s1_l2_desc: "尽量附上活动现场的照片（行动照），以增加可信度，而不仅仅是证书。",
+        s1_l3_title: "成果与价值:",
+        s1_l3_desc: "解释该活动如何造福社会并塑造了您的积极心态。",
+        section2_title: "⭐ 展示领导力 (Leadership & Council)",
+        s2_l1_title: "学校或学生会角色:",
+        s2_l1_desc: "如果您曾担任学生会长、学生会委员或小组长，请突出您的管理与应变能力。",
+        s2_l2_title: "团队合作技能:",
+        s2_l2_desc: "向考官展示您具备良好的协调、沟通能力，能够带领团队走向成功。",
+        section3_title: "💡 额外提示 (Pro Tip)",
+        s3_desc: "大学寻找的不仅仅是成绩优异的学生，更是准备推动社会前进的“未来领袖”。社会活动让您的作品集更加完美。",
+        btn_prev: "上一步：自我提升",
+        btn_next: "下一步：封底制作"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

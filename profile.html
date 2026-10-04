@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>วิธีทำหน้าประวัติ | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่าง */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+    }
+    .portfolio-img:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-prev {
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-prev:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-person-vcard"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีทำหน้า <span class="text-accent">ประวัติส่วนตัว (Profile)</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">สร้าง First Impression ที่ดี นำเสนอตัวตนให้เข้าตากรรมการ</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูปภาพ 1 P.png และ 2 P.png -->
+      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center gap-3">
+        <img src="รูปประวัติ/P1.png" alt="Profile Example 1" class="img-fluid portfolio-img">
+        <img src="รูปประวัติ/P2.png" alt="Profile Example 2" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำ -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">ข้อมูลพื้นฐานที่จำเป็นต้องมี</h3>
+          <ul class="list-unstyled mb-0 small">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">ข้อมูลส่วนตัว:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">ใส่ข้อมูลส่วนตัวพอประมาณเท่าที่จำเป็น เช่น ชื่อ-สกุล วันเกิด สัญชาติ ศาสนา และแผนการเรียน</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ประวัติการศึกษา:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">แนะนำให้ใส่เฉพาะระดับมัธยมปลาย (พร้อมผลการเรียนเฉลี่ย GPAX) แต่สามารถเพิ่มระดับมัธยมต้นได้หากพื้นที่เหลือ</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">ข้อมูลการติดต่อ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ใส่ข้อมูลการติดต่อให้ครบทุกช่องทาง เช่น เบอร์โทรศัพท์, อีเมล, และที่อยู่ปัจจุบัน เพื่อความสะดวกในการติดต่อกลับ</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">เทคนิคสร้าง First Impression ให้โดดเด่น</h3>
+          <ul class="list-unstyled mb-0 small">
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">ความสามารถพิเศษ/จุดเด่น:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ลิสต์ทักษะทั้ง Hard Skill (เช่น การเขียนโปรแกรม, กราฟิก) และ Soft Skill (เช่น ความเป็นผู้นำ, การทำงานเป็นทีม) ที่มีประโยชน์ต่อสาขาที่เรียน</span></li>
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ไฮไลต์ผลงานเด่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ยกผลงานชิ้นโบว์แดง หรือเกียรติประวัติที่ภูมิใจที่สุดมาใส่ในหน้านี้ เพื่อดึงดูดความสนใจกรรมการตั้งแต่หน้าแรก</span></li>
+            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l3_title">เป้าหมายชีวิต (Life Goals):</strong> <span class="text-secondary" data-i18n="s2_l3_desc">เขียนเป้าหมายความคาดหวังในการเรียน ต้องเขียนให้สอดคล้องกับ SOP (Statement of Purpose) และคณะที่อยากเข้า</span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section3_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s3_desc">
+            หน้านี้คือพื้นที่ขายของ! ควรใช้ Icon หรือ Progress Bar ในการแสดงระดับความสามารถ (Skills) แทนการเขียนตัวหนังสือยาวๆ จะช่วยให้หน้าประวัติดูทันสมัย อ่านง่าย และใช้รูปภาพที่ดูมั่นใจหรือเป็นรูปตอนกำลังทำกิจกรรมที่เกี่ยวข้องกับคณะจะยิ่งเสริมความน่าเชื่อถือครับ
+          </p>
+          
+          <!-- ปุ่มนำทาง ไป-กลับ -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+            <a href="cover.html" class="btn btn-prev rounded-pill px-4 py-2 fw-bold text-center small">
+              <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_prev">กลับหน้าก่อนหน้า (Cover)</span>
+            </a>
+            <a href="sop.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold text-center small">
+              <span data-i18n="btn_next">วิธีทำหน้าถัดไป (SOP)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูปภาพ 3 P.png และ 4 P.png -->
+      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center gap-3">
+        <img src="รูปประวัติ/P3.png" alt="Profile Example 3" class="img-fluid portfolio-img">
+        <img src="รูปประวัติ/P4.png" alt="Profile Example 4" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีทำหน้า <span class="text-accent">ประวัติส่วนตัว (Profile)</span>',
+        page_subtitle: "สร้าง First Impression ที่ดี นำเสนอตัวตนให้เข้าตากรรมการ",
+        section1_title: "ข้อมูลพื้นฐานที่จำเป็นต้องมี",
+        s1_l1_title: "ข้อมูลส่วนตัว:",
+        s1_l1_desc: "ใส่ข้อมูลส่วนตัวพอประมาณเท่าที่จำเป็น เช่น ชื่อ-สกุล วันเกิด สัญชาติ ศาสนา และแผนการเรียน",
+        s1_l2_title: "ประวัติการศึกษา:",
+        s1_l2_desc: "แนะนำให้ใส่เฉพาะระดับมัธยมปลาย (พร้อมผลการเรียนเฉลี่ย GPAX) แต่สามารถเพิ่มระดับมัธยมต้นได้หากพื้นที่เหลือ",
+        s1_l3_title: "ข้อมูลการติดต่อ:",
+        s1_l3_desc: "ใส่ข้อมูลการติดต่อให้ครบทุกช่องทาง เช่น เบอร์โทรศัพท์, อีเมล, และที่อยู่ปัจจุบัน เพื่อความสะดวกในการติดต่อกลับ",
+        section2_title: "เทคนิคสร้าง First Impression ให้โดดเด่น",
+        s2_l1_title: "ความสามารถพิเศษ/จุดเด่น:",
+        s2_l1_desc: "ลิสต์ทักษะทั้ง Hard Skill (เช่น การเขียนโปรแกรม, กราฟิก) และ Soft Skill (เช่น ความเป็นผู้นำ, การทำงานเป็นทีม) ที่มีประโยชน์ต่อสาขาที่เรียน",
+        s2_l2_title: "ไฮไลต์ผลงานเด่น:",
+        s2_l2_desc: "ยกผลงานชิ้นโบว์แดง หรือเกียรติประวัติที่ภูมิใจที่สุดมาใส่ในหน้านี้ เพื่อดึงดูดความสนใจกรรมการตั้งแต่หน้าแรก",
+        s2_l3_title: "เป้าหมายชีวิต (Life Goals):",
+        s2_l3_desc: "เขียนเป้าหมายความคาดหวังในการเรียน ต้องเขียนให้สอดคล้องกับ SOP (Statement of Purpose) และคณะที่อยากเข้า",
+        section3_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s3_desc: "หน้านี้คือพื้นที่ขายของ! ควรใช้ Icon หรือ Progress Bar ในการแสดงระดับความสามารถ (Skills) แทนการเขียนตัวหนังสือยาวๆ จะช่วยให้หน้าประวัติดูทันสมัย อ่านง่าย และใช้รูปภาพที่ดูมั่นใจหรือเป็นรูปตอนกำลังทำกิจกรรมที่เกี่ยวข้องกับคณะจะยิ่งเสริมความน่าเชื่อถือครับ",
+        btn_prev: "กลับหน้าก่อนหน้า (Cover)",
+        btn_next: "วิธีทำหน้าถัดไป (SOP)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to write a <span class="text-accent">Profile Page</span>',
+        page_subtitle: "Create a great first impression and present your best self",
+        section1_title: "Essential Information",
+        s1_l1_title: "Personal Info:",
+        s1_l1_desc: "Include necessary details like Name, Date of Birth, Nationality, Religion, and Study Plan",
+        s1_l2_title: "Education History:",
+        s1_l2_desc: "It is recommended to focus on High School (with GPAX), though Middle School can be included if space permits",
+        s1_l3_title: "Contact Info:",
+        s1_l3_desc: "Provide complete contact details including Phone number, Email, and Address",
+        section2_title: "First Impression Techniques",
+        s2_l1_title: "Special Skills/Strengths:",
+        s2_l1_desc: "List both Hard Skills (e.g., Programming, Design) and Soft Skills (e.g., Leadership, Teamwork) relevant to the faculty",
+        s2_l2_title: "Highlight Top Works:",
+        s2_l2_desc: "Showcase your absolute best projects or proudest achievements here to grab the committee's attention immediately",
+        s2_l3_title: "Life Goals:",
+        s2_l3_desc: "State your expectations and goals. This must align with your Statement of Purpose (SOP) and your chosen major",
+        section3_title: "💡 Pro Tip",
+        s3_desc: "This page is where you sell yourself! Use Icons or Progress Bars to display your skills instead of long text to make it look modern and readable. Using a confident photo or an action shot related to your major can significantly boost your credibility.",
+        btn_prev: "Previous: Cover",
+        btn_next: "Next: SOP Page"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何编写 <span class="text-accent">个人简介 (Profile)</span>',
+        page_subtitle: "留下极佳的第一印象，向考官展示最好的自己",
+        section1_title: "基本必要信息",
+        s1_l1_title: "个人信息:",
+        s1_l1_desc: "仅提供必要的个人详细信息，如姓名、出生日期、国籍、宗教和学习计划",
+        s1_l2_title: "教育背景:",
+        s1_l2_desc: "建议重点列出高中学历（附带GPAX），如果空间允许，也可添加初中学历",
+        s1_l3_title: "联系方式:",
+        s1_l3_desc: "请提供完整的联系方式，包括电话号码、电子邮件和当前地址，以便大学联系",
+        section2_title: "打造第一印象的技巧",
+        s2_l1_title: "特长/优势:",
+        s2_l1_desc: "列出对申请专业有帮助的硬技能（如编程、设计）和软技能（如领导力、团队合作）",
+        s2_l2_title: "突出优秀作品:",
+        s2_l2_desc: "在此页面展示您最优秀的作品或最自豪的荣誉，以在第一眼吸引考官的注意力",
+        s2_l3_title: "人生目标 (Life Goals):",
+        s2_l3_desc: "写下您的学习期望和目标，这必须与您的个人陈述 (SOP) 及所选专业保持一致",
+        section3_title: "💡 额外提示 (Pro Tip)",
+        s3_desc: "这是您推销自己的页面！建议使用图标 (Icons) 或进度条来展示您的技能水平，而不是长篇大论的文字，这能让页面更具现代感且易读。此外，使用一张自信的照片或参与专业相关活动的照片将大大增强您的可信度。",
+        btn_prev: "上一步：封面",
+        btn_next: "下一步：个人陈述 (SOP)"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

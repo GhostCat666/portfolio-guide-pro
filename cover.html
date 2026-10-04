@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>วิธีทำหน้าปก | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่าง */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+    }
+    .portfolio-img:hover {
+      transform: scale(1.03);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <!-- ตัวสลับภาษา -->
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-file-earmark-image"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีทำ <span class="text-accent">หน้าปก</span> Portfolio</h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">ทำหน้าปกยังไงให้เด่นให้ปัง</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูปภาพ P1 - P3 -->
+      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center flex-wrap gap-3">
+        <img src="รูปปกพอต/P1.png" alt="Portfolio Example 1" class="img-fluid portfolio-img">
+        <img src="รูปปกพอต/P2.png" alt="Portfolio Example 2" class="img-fluid portfolio-img">
+        <img src="รูปปกพอต/P3.png" alt="Portfolio Example 3" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำ -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">องค์ประกอบสำคัญที่ต้องมีบนหน้าปก</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <span class="text-secondary" data-i18n="s1_l1">ต้องมีคำว่า "PORTFOLIO" หรือ แฟ้มสะสมผลงาน และระบุปีการศึกษาให้ชัดเจน</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <span class="text-secondary" data-i18n="s1_l2">ระบุชื่อมหาวิทยาลัย คณะ สาขาวิชา และรหัสโครงการที่ต้องการยื่นสมัครให้ถูกต้อง</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <span class="text-secondary" data-i18n="s1_l3">ใช้รูปถ่ายหน้าตรงที่ถ่ายไว้ไม่เกิน 6 เดือน โดยแต่งกายชุดนักเรียนให้เรียบร้อย</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <span class="text-secondary" data-i18n="s1_l4">ระบุชื่อ-นามสกุลของผู้สมัคร และชื่อโรงเรียนที่กำลังศึกษาปัจจุบันอย่างชัดเจน</span></li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <span class="text-secondary" data-i18n="s1_l5">อาจเพิ่มเติมคติประจำใจ หรือข้อความแสดงความมุ่งมั่นที่สอดคล้องกับคณะ/สาขา เช่น "ก้าวสู่โลกสมัยใหม่ กับเทคโนโลยีอัจฉริยะ"</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">สิ่งที่ควรทำ (DO)</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-lg text-success-custom me-2"></i> <span data-i18n="s2_do1">ทำตามรูปแบบและคำสั่งที่มหาวิทยาลัยกำหนดอย่างเคร่งครัด (เขาระบุมาแบบไหน ก็ต้องทำแบบนั้น)</span></li>
+            <li class="mb-3"><i class="bi bi-check-lg text-success-custom me-2"></i> <span data-i18n="s2_do2">ตรวจสอบการสะกดคำและใช้ภาษาให้ถูกต้อง</span></li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success-custom me-2"></i> <span data-i18n="s2_do3">จัดทำเนื้อหาให้กระชับ เข้าใจง่าย เรียงลำดับให้ดี และมีความคิดสร้างสรรค์</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-danger">
+          <h3 class="fw-bold mb-4 text-danger border-bottom border-danger pb-2 fs-5 fs-md-4" data-i18n="section3_title">สิ่งที่ไม่ควรทำ (DON'T)</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-x-circle-fill text-danger me-2"></i> <span data-i18n="s3_dont1">สวยแต่รูป หรือจ้างทำแพง แต่ไม่มีผลงานตรงตามความต้องการของมหาวิทยาลัย</span></li>
+            <li class="mb-3"><i class="bi bi-x-circle-fill text-danger me-2"></i> <span data-i18n="s3_dont2">ใส่ข้อมูลมั่วๆ ไปก่อน หรือมีอะไรก็ใส่ไปจนเนื้อหาเยอะเกินไป</span></li>
+            <li class="mb-2"><i class="bi bi-x-circle-fill text-danger me-2"></i> <span data-i18n="s3_dont3">เขียนผิดเขียนถูก เรียงลำดับผิด หรือทำผิดคำสั่งของมหาวิทยาลัยเด็ดขาด</span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section4_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s4_desc">
+            หลายคนคิดว่าต้องทำหน้าปกให้เป็น <strong>สีประจำคณะหรือมหาวิทยาลัย</strong> เท่านั้น แต่จากประสบการณ์จริง <strong>เรื่องนี้ไม่จำเป็นเสมอไป!</strong> กรรมการโฟกัสที่ผลงานและความเป็นตัวตนของคุณมากกว่า ดังนั้นควรเลือกใช้สีที่สะท้อนตัวตนของคุณ ดูสบายตา และทำให้ข้อมูลบนหน้าปกอ่านง่ายที่สุด
+          </p>
+          <div class="text-center">
+            <a href="profile.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold">
+              <span data-i18n="btn_next">วิธีทำหน้าถัดไป (Profile)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูปภาพ P4 - P6 -->
+      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center flex-wrap gap-3">
+        <img src="รูปปกพอต/P4.png" alt="Portfolio Example 4" class="img-fluid portfolio-img">
+        <img src="รูปปกพอต/P5.png" alt="Portfolio Example 5" class="img-fluid portfolio-img">
+        <img src="รูปปกพอต/P6.png" alt="Portfolio Example 6" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีทำ <span class="text-accent">หน้าปก</span> Portfolio',
+        page_subtitle: "ทำหน้าปกยังไงให้เด่นให้ปัง",
+        section1_title: "องค์ประกอบสำคัญที่ต้องมีบนหน้าปก",
+        s1_l1: "ต้องมีคำว่า \"PORTFOLIO\" หรือ แฟ้มสะสมผลงาน และระบุปีการศึกษาให้ชัดเจน",
+        s1_l2: "ระบุชื่อมหาวิทยาลัย คณะ สาขาวิชา และรหัสโครงการที่ต้องการยื่นสมัครให้ถูกต้อง",
+        s1_l3: "ใช้รูปถ่ายหน้าตรงที่ถ่ายไว้ไม่เกิน 6 เดือน โดยแต่งกายชุดนักเรียนให้เรียบร้อย",
+        s1_l4: "ระบุชื่อ-นามสกุลของผู้สมัคร และชื่อโรงเรียนที่กำลังศึกษาปัจจุบันอย่างชัดเจน",
+        s1_l5: "อาจเพิ่มเติมคติประจำใจ หรือข้อความแสดงความมุ่งมั่นที่สอดคล้องกับคณะ/สาขา เช่น \"ก้าวสู่โลกสมัยใหม่ กับเทคโนโลยีอัจฉริยะ\"",
+        section2_title: "สิ่งที่ควรทำ (DO)",
+        s2_do1: "ทำตามรูปแบบและคำสั่งที่มหาวิทยาลัยกำหนดอย่างเคร่งครัด (เขาระบุมาแบบไหน ก็ต้องทำแบบนั้น)",
+        s2_do2: "ตรวจสอบการสะกดคำและใช้ภาษาให้ถูกต้อง",
+        s2_do3: "จัดทำเนื้อหาให้กระชับ เข้าใจง่าย เรียงลำดับให้ดี และมีความคิดสร้างสรรค์",
+        section3_title: "สิ่งที่ไม่ควรทำ (DON'T)",
+        s3_dont1: "สวยแต่รูป หรือจ้างทำแพง แต่ไม่มีผลงานตรงตามความต้องการของมหาวิทยาลัย",
+        s3_dont2: "ใส่ข้อมูลมั่วๆ ไปก่อน หรือมีอะไรก็ใส่ไปจนเนื้อหาเยอะเกินไป",
+        s3_dont3: "เขียนผิดเขียนถูก เรียงลำดับผิด หรือทำผิดคำสั่งของมหาวิทยาลัยเด็ดขาด",
+        section4_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s4_desc: "หลายคนคิดว่าต้องทำหน้าปกให้เป็น <strong>สีประจำคณะหรือมหาวิทยาลัย</strong> เท่านั้น แต่จากประสบการณ์จริง <strong>เรื่องนี้ไม่จำเป็นเสมอไป!</strong> กรรมการโฟกัสที่ผลงานและความเป็นตัวตนของคุณมากกว่า ดังนั้นควรเลือกใช้สีที่สะท้อนตัวตนของคุณ ดูสบายตา และทำให้ข้อมูลบนหน้าปกอ่านง่ายที่สุด",
+        btn_next: "วิธีทำหน้าถัดไป (Profile)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to create a <span class="text-accent">Cover Page</span>',
+        page_subtitle: "How to make your cover stand out and impress reviewers",
+        section1_title: "Essential Cover Page Elements",
+        s1_l1: "Clearly include the word \"PORTFOLIO\" and the academic year",
+        s1_l2: "State the target University, Faculty, Major, and specific admission project code correctly",
+        s1_l3: "Use a straight-face photo taken within the last 6 months, wearing a proper school uniform",
+        s1_l4: "Clearly display your full name and current school name",
+        s1_l5: "Optionally, add a motto or statement of purpose that aligns with the major you are applying for",
+        section2_title: "Things you SHOULD DO (DO)",
+        s2_do1: "Strictly follow the format and instructions set by the university",
+        s2_do2: "Check for correct spelling and grammar",
+        s2_do3: "Keep the content concise, easy to understand, well-ordered, and creative",
+        section3_title: "Things to AVOID (DON'T)",
+        s3_dont1: "Focusing only on aesthetics or paying a lot to hire someone without relevant works",
+        s3_dont2: "Putting random or excessive information just to fill up the page",
+        s3_dont3: "Having typos, wrong ordering, or failing to follow the university's instructions",
+        section4_title: "💡 Pro Tip",
+        s4_desc: "Many people think you MUST match the <strong>university's official colors</strong>, but from real experience, <strong>this isn't always true!</strong> Committees focus more on your works and identity. It's much better to choose a color scheme that reflects who you are, is easy on the eyes, and makes the cover text highly readable.",
+        btn_next: "Next: Profile Page"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何制作 <span class="text-accent">封面</span>',
+        page_subtitle: "教你如何打造引人注目的优秀封面",
+        section1_title: "封面必备元素",
+        s1_l1: "必须清楚地包含“PORTFOLIO”字样及学年",
+        s1_l2: "正确注明目标大学、学院、专业及具体招生项目代码",
+        s1_l3: "使用近6个月内的正面免冠照片，并穿着整洁的校服",
+        s1_l4: "清晰展示您的全名及当前所在学校名称",
+        s1_l5: "可以选择添加与所申请专业相符的座右铭或志愿声明",
+        section2_title: "应该做的事 (DO)",
+        s2_do1: "严格遵循大学规定的格式和要求",
+        s2_do2: "检查拼写和语法是否正确",
+        s2_do3: "内容要简明扼要、易于理解、排序合理且具有创造力",
+        section3_title: "不该做的事 (DON'T)",
+        s3_dont1: "只注重美观或花高价请人代做，但却没有符合大学要求的实际作品",
+        s3_dont2: "随意堆砌信息，或者有任何东西都放上去导致内容过多",
+        s3_dont3: "出现错别字、顺序排列错误，或绝对不能违反大学的规定指令",
+        section4_title: "💡 额外提示 (Pro Tip)",
+        s4_desc: "很多人认为必须使用 <strong>大学的官方颜色</strong> 作为封面，但根据实际经验，<strong>这并非绝对必要！</strong> 考官更看重您的作品和个人特质。最好选择能体现您自身特色的颜色，让视觉感到舒适，并确保封面信息清晰易读。",
+        btn_next: "下一步：个人简介"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

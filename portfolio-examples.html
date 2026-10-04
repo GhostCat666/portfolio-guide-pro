@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ตัวอย่างพอร์ตโฟลิโอ | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    
+    /* สไตล์สำหรับการ์ดเลือกคณะ */
+    .category-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      height: 100%;
+      text-decoration: none;
+      display: block;
+      color: var(--text-main);
+    }
+    .category-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      color: var(--text-main);
+    }
+    .icon-box {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .category-card:hover .icon-box {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .text-accent { color: var(--accent); }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-images"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">คลัง <span class="text-accent">ตัวอย่างพอร์ตโฟลิโอ</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">รวบรวมตัวอย่างพอร์ตโฟลิโอที่ผ่านการคัดเลือกแยกตามกลุ่มคณะ เพื่อเป็นแนวทาง</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <!-- ปุ่มกลับหน้าหลัก -->
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <!-- Grid หมวดหมู่คณะ -->
+    <div class="row g-3 g-md-4">
+      
+      <!-- คณะวิศวกรรมศาสตร์ / ไอที -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-engineer.html" class="category-card p-3 p-md-4">
+          <div class="icon-box"><i class="bi bi-cpu"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_eng_title">คณะวิศวกรรมศาสตร์ / ไอที</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_eng_desc">วิศวกรรมคอมพิวเตอร์, เทคโนโลยีดิจิทัล, เครื่องกล, ไฟฟ้า, อุตสาหการ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะวิทยาศาสตร์ / เทคโนโลยี -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-science.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;"><i class="bi bi-virus"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_sci_title">คณะวิทยาศาสตร์</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_sci_desc">ชีววิทยา, เคมี, ฟิสิกส์, วัสดุศาสตร์, เทคโนโลยีชีวภาพ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- กลุ่มวิทยาศาสตร์สุขภาพ -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-health.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(244, 63, 94, 0.1); color: #f43f5e;"><i class="bi bi-heart-pulse"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_health_title">กลุ่มวิทยาศาสตร์สุขภาพ</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_health_desc">แพทยศาสตร์, ทันตแพทยศาสตร์, เภสัชศาสตร์, พยาบาลศาสตร์ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะศิลปกรรม / สถาปัตยกรรม -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-art.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;"><i class="bi bi-palette"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_art_title">คณะศิลปกรรม / สถาปัตย์ฯ</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_art_desc">สถาปัตยกรรมศาสตร์, ศิลปกรรม, มัณฑนศิลป์, การออกแบบ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะครุศาสตร์ / ศึกษาศาสตร์ -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-edu.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(168, 85, 247, 0.1); color: #a855f7;"><i class="bi bi-book"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_edu_title">คณะครุศาสตร์ / ศึกษาศาสตร์</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_edu_desc">ประถมศึกษา, ปฐมวัย, มัธยมศึกษา, จิตวิทยาการปรึกษา ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะบริหารธุรกิจ / บัญชี -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-bus.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(59, 130, 246, 0.1); color: #3b82f6;"><i class="bi bi-briefcase"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_bus_title">คณะบริหารธุรกิจ / บัญชี</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_bus_desc">บริหารธุรกิจ, บัญชี, การตลาด, โลจิสติกส์, เศรษฐศาสตร์ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะนิเทศศาสตร์ / อักษรศาสตร์ -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-comm.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(236, 72, 153, 0.1); color: #ec4899;"><i class="bi bi-camera-video"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_comm_title">คณะนิเทศศาสตร์ / มนุษยฯ</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_comm_desc">นิเทศศาสตร์, วารสารศาสตร์, อักษรศาสตร์, ศิลปศาสตร์ ฯลฯ</p>
+        </a>
+      </div>
+
+      <!-- คณะนิติศาสตร์ / รัฐศาสตร์ -->
+      <div class="col-12 col-sm-6 col-lg-4">
+        <a href="port-law.html" class="category-card p-3 p-md-4">
+          <div class="icon-box" style="background-color: rgba(100, 116, 139, 0.1); color: #94a3b8;"><i class="bi bi-bank"></i></div>
+          <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="fac_law_title">คณะนิติศาสตร์ / รัฐศาสตร์</h5>
+          <p class="text-secondary small mb-0" data-i18n="fac_law_desc">นิติศาสตร์, รัฐศาสตร์, รัฐประศาสนศาสตร์, ความสัมพันธ์ระหว่างประเทศ ฯลฯ</p>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        page_title: 'คลัง <span class="text-accent">ตัวอย่างพอร์ตโฟลิโอ</span>',
+        page_subtitle: "รวบรวมตัวอย่างพอร์ตโฟลิโอที่ผ่านการคัดเลือกแยกตามกลุ่มคณะ เพื่อเป็นแนวทาง",
+        btn_back: "กลับหน้าหลัก",
+        fac_eng_title: "คณะวิศวกรรมศาสตร์ / ไอที",
+        fac_eng_desc: "วิศวกรรมคอมพิวเตอร์, เทคโนโลยีดิจิทัล, เครื่องกล, ไฟฟ้า, อุตสาหการ ฯลฯ",
+        fac_sci_title: "คณะวิทยาศาสตร์",
+        fac_sci_desc: "ชีววิทยา, เคมี, ฟิสิกส์, วัสดุศาสตร์, เทคโนโลยีชีวภาพ ฯลฯ",
+        fac_health_title: "กลุ่มวิทยาศาสตร์สุขภาพ",
+        fac_health_desc: "แพทยศาสตร์, ทันตแพทยศาสตร์, เภสัชศาสตร์, พยาบาลศาสตร์ ฯลฯ",
+        fac_art_title: "คณะศิลปกรรม / สถาปัตย์ฯ",
+        fac_art_desc: "สถาปัตยกรรมศาสตร์, ศิลปกรรม, มัณฑนศิลป์, การออกแบบ ฯลฯ",
+        fac_edu_title: "คณะครุศาสตร์ / ศึกษาศาสตร์",
+        fac_edu_desc: "ประถมศึกษา, ปฐมวัย, มัธยมศึกษา, จิตวิทยาการปรึกษา ฯลฯ",
+        fac_bus_title: "คณะบริหารธุรกิจ / บัญชี",
+        fac_bus_desc: "บริหารธุรกิจ, บัญชี, การตลาด, โลจิสติกส์, เศรษฐศาสตร์ ฯลฯ",
+        fac_comm_title: "คณะนิเทศศาสตร์ / มนุษยฯ",
+        fac_comm_desc: "นิเทศศาสตร์, วารสารศาสตร์, อักษรศาสตร์, ศิลปศาสตร์ ฯลฯ",
+        fac_law_title: "คณะนิติศาสตร์ / รัฐศาสตร์",
+        fac_law_desc: "นิติศาสตร์, รัฐศาสตร์, รัฐประศาสนศาสตร์, ความสัมพันธ์ระหว่างประเทศ ฯลฯ"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        page_title: '<span class="text-accent">Portfolio Examples</span> Gallery',
+        page_subtitle: "A collection of accepted portfolios categorized by faculty to serve as guidelines",
+        btn_back: "Back to Home",
+        fac_eng_title: "Engineering / IT",
+        fac_eng_desc: "Computer Engineering, Digital Tech, Mechanical, Electrical, Industrial, etc.",
+        fac_sci_title: "Faculty of Science",
+        fac_sci_desc: "Biology, Chemistry, Physics, Materials Science, Biotechnology, etc.",
+        fac_health_title: "Health Sciences",
+        fac_health_desc: "Medicine, Dentistry, Pharmacy, Nursing, etc.",
+        fac_art_title: "Arts / Architecture",
+        fac_art_desc: "Architecture, Fine Arts, Decorative Arts, Design, etc.",
+        fac_edu_title: "Faculty of Education",
+        fac_edu_desc: "Primary Edu, Early Childhood, Secondary Edu, Counseling Psychology, etc.",
+        fac_bus_title: "Business / Accounting",
+        fac_bus_desc: "Business Admin, Accounting, Marketing, Logistics, Economics, etc.",
+        fac_comm_title: "Communication / Humanities",
+        fac_comm_desc: "Comm Arts, Journalism, Arts, Liberal Arts, etc.",
+        fac_law_title: "Law / Political Science",
+        fac_law_desc: "Law, Political Science, Public Admin, International Relations, etc."
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        page_title: '<span class="text-accent">作品集示例</span> 库',
+        page_subtitle: "按学院分类收集已获录取的作品集示例，以供参考",
+        btn_back: "返回首页",
+        fac_eng_title: "工程学院 / 信息技术",
+        fac_eng_desc: "计算机工程、数字技术、机械、电气、工业等",
+        fac_sci_title: "理学院",
+        fac_sci_desc: "生物学、化学、物理学、材料科学、生物技术等",
+        fac_health_title: "健康科学",
+        fac_health_desc: "医学、牙科、药学、护理学等",
+        fac_art_title: "艺术 / 建筑学",
+        fac_art_desc: "建筑学、美术、装饰艺术、设计等",
+        fac_edu_title: "教育学院",
+        fac_edu_desc: "小学教育、幼儿教育、中学教育、咨询心理学等",
+        fac_bus_title: "商学 / 会计",
+        fac_bus_desc: "工商管理、会计、营销、物流、经济学等",
+        fac_comm_title: "传媒 / 人文科学",
+        fac_comm_desc: "传播艺术、新闻学、文学院、文科等",
+        fac_law_title: "法学 / 政治学",
+        fac_law_desc: "法学、政治学、公共管理、国际关系等"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

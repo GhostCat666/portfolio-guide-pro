@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>วิธีเขียนโปรเจกต์ | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .portfolio-img:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-prev {
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-prev:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-lightbulb"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีเขียน <span class="text-accent">โปรเจกต์และผลงาน</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">เทคนิคการเขียนที่มา โครงสร้าง 5W1H และการใส่ QR Code วิดีโอสาธิตให้ปังที่สุด</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row align-items-stretch g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูป P1.png -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปโปรเจค/P1.png" alt="Project Example 1" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <!-- ที่มาของโครงงาน -->
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section0_title">📌 ที่มาและความสำคัญของโครงงาน</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s0_l1_title">จุดเริ่มต้นและแรงบันดาลใจ:</strong> <span class="text-secondary" data-i18n="s0_l1_desc">เล่าสตอรี่ว่าเราไปเจอสถานการณ์ ปัญหา หรือไอเดียนี้มาจากไหน (เช่น ไปเที่ยว, พบปัญหาในโรงเรียน หรือต่อยอดจากกิจกรรมสภานักเรียน)</span></li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s0_l2_title">การวิเคราะห์ปัญหา:</strong> <span class="text-secondary" data-i18n="s0_l2_desc">แสดงให้กรรมการเห็นกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ว่าทำไมปัญหาข้อนี้ถึงสำคัญและควรได้รับการแก้ไข</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">โครงสร้างการนำเสนอโปรเจกต์ (5W1H & CAMPHUB)</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">WHAT (เราทำอะไร):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เขียนให้ชัดเจนว่าเป็นโครงงานอะไร ใครทำ พร้อมรูปถ่ายตอนลงมือทำจริง</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">WHERE & WHEN (ที่ไหนและเมื่อไหร่):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุสถานที่และช่วงเวลา พร้อมภาพประกอบกับสถานที่หรือเกียรติบัตร</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">HOW (ทำไมถึงเลือกทำ):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">เหตุผลและความตั้งใจในการเก็บเกี่ยวประสบการณ์</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l4_title">WHY (ทำแล้วได้อะไร):</strong> <span class="text-secondary" data-i18n="s1_l4_desc">ผลลัพธ์ที่ช่วยแก้ปัญหาให้ตัวเราและสังคม พร้อมทักษะที่พัฒนาขึ้น</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">เทคนิคเพิ่มเติมให้โปรเจกต์ปัง</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">ใช้ Flowchart หรือผังงาน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">แสดงกระบวนการคิดและระบบการทำงานด้วยผังงาน เพื่อให้กรรมการเห็นระบบวิศวกรรมที่ชัดเจน</span></li>
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ระบุอุปกรณ์และโค้ด:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แจกแจงฮาร์ดแวร์ (เช่น ESP32, เซนเซอร์) และภาษาโปรแกรมที่ใช้จริง</span></li>
+            <li class="mb-2"><i class="bi bi-qr-code text-success-custom me-2"></i> <strong data-i18n="s2_l3_title">🎥 QR Code วิดีโอสาธิต:</strong> <span class="text-secondary"><strong class="text-accent" data-i18n="s2_l3_highlight">สำคัญมาก!</strong> <span data-i18n="s2_l3_desc">ควรแนบคิวอาร์โค้ด (QR Code) สำหรับสแกนดูวิดีโอสาธิตการทำงานจริงของโปรเจกต์ เพื่อให้กรรมการเห็นภาพการใช้งานแบบ Real-time</span></span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning mb-0" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section3_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s3_desc">
+            กรรมการไม่ได้มองหาผลงานที่สมบูรณ์แบบที่สุด แต่มองหา "กระบวนการคิดและการแก้ปัญหา" (Problem-Solving Process) เวลาเจออุปสรรค อย่าลืมเล่าวิธีแก้ปัญหาด้วยครับ!
+          </p>
+          
+          <!-- ปุ่มนำทาง ไป-กลับ -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+            <a href="sop.html" class="btn btn-prev rounded-pill px-4 py-2 fw-bold text-center">
+              <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_prev">กลับหน้าก่อนหน้า (SOP)</span>
+            </a>
+            <a href="academic.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold text-center">
+              <span data-i18n="btn_next">วิธีทำหน้าถัดไป (Self-Dev)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูป P2.png -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปโปรเจค/P2.png" alt="Project Example 2" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีเขียน <span class="text-accent">โปรเจกต์และผลงาน</span>',
+        page_subtitle: "เทคนิคการเขียนที่มา โครงสร้าง 5W1H และการใส่ QR Code วิดีโอสาธิตให้ออกมาปังที่สุด",
+        section0_title: "📌 ที่มาและความสำคัญของโครงงาน",
+        s0_l1_title: "จุดเริ่มต้นและแรงบันดาลใจ:",
+        s0_l1_desc: "เล่าสตอรี่ว่าเราไปเจอสถานการณ์ ปัญหา หรือไอเดียนี้มาจากไหน (เช่น ไปเที่ยว, พบปัญหาในโรงเรียน หรือต่อยอดจากกิจกรรมสภานักเรียน)",
+        s0_l2_title: "การวิเคราะห์ปัญหา:",
+        s0_l2_desc: "แสดงให้กรรมการเห็นกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ว่าทำไมปัญหาข้อนี้ถึงสำคัญและควรได้รับการแก้ไข",
+        section1_title: "โครงสร้างการนำเสนอโปรเจกต์ (5W1H & CAMPHUB)",
+        s1_l1_title: "WHAT (เราทำอะไร):",
+        s1_l1_desc: "เขียนให้ชัดเจนว่าเป็นโครงงานอะไร ใครทำ พร้อมรูปถ่ายตอนลงมือทำจริง",
+        s1_l2_title: "WHERE & WHEN (ที่ไหนและเมื่อไหร่):",
+        s1_l2_desc: "ระบุสถานที่และช่วงเวลา พร้อมภาพประกอบกับสถานที่หรือเกียรติบัตร",
+        s1_l3_title: "HOW (ทำไมถึงเลือกทำ):",
+        s1_l3_desc: "เหตุผลและความตั้งใจในการเก็บเกี่ยวประสบการณ์",
+        s1_l4_title: "WHY (ทำแล้วได้อะไร):",
+        s1_l4_desc: "ผลลัพธ์ที่ช่วยแก้ปัญหาให้ตัวเราและสังคม พร้อมทักษะที่พัฒนาขึ้น",
+        section2_title: "เทคนิคเพิ่มเติมให้โปรเจกต์ปัง",
+        s2_l1_title: "ใช้ Flowchart หรือผังงาน:",
+        s2_l1_desc: "แสดงกระบวนการคิดและระบบการทำงานด้วยผังงาน เพื่อให้กรรมการเห็นระบบวิศวกรรมที่ชัดเจน",
+        s2_l2_title: "ระบุอุปกรณ์และโค้ด:",
+        s2_l2_desc: "แจกแจงฮาร์ดแวร์ (เช่น ESP32, เซนเซอร์) และภาษาโปรแกรมที่ใช้จริง",
+        s2_l3_title: "🎥 QR Code วิดีโอสาธิต:",
+        s2_l3_highlight: "สำคัญมาก!",
+        s2_l3_desc: "ควรแนบคิวอาร์โค้ด (QR Code) สำหรับสแกนดูวิดีโอสาธิตการทำงานจริงของโปรเจกต์ เพื่อให้กรรมการเห็นภาพการใช้งานแบบ Real-time",
+        section3_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s3_desc: "กรรมการไม่ได้มองหาผลงานที่สมบูรณ์แบบที่สุด แต่มองหา \"กระบวนการคิดและการแก้ปัญหา\" (Problem-Solving Process) เวลาเจออุปสรรค อย่าลืมเล่าวิธีแก้ปัญหาด้วยครับ",
+        btn_prev: "กลับหน้าก่อนหน้า (SOP)",
+        btn_next: "วิธีทำหน้าถัดไป (Self-Dev)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to write <span class="text-accent">Projects & Works</span>',
+        page_subtitle: "Techniques for background writing, 5W1H structure, and adding demo video QR codes",
+        section0_title: "📌 Project Background & Importance",
+        s0_l1_title: "Origin & Inspiration:",
+        s0_l1_desc: "Tell the story of where you encountered the problem or idea",
+        s0_l2_title: "Problem Analysis:",
+        s0_l2_desc: "Show systematic critical thinking on why this problem matters",
+        section1_title: "Project Presentation Structure (5W1H & CAMPHUB)",
+        s1_l1_title: "WHAT:",
+        s1_l1_desc: "Clearly state the project and organizers with active work photos",
+        s1_l2_title: "WHERE & WHEN:",
+        s1_l2_desc: "Specify location and timeframe with venue or certificate photos",
+        s1_l3_title: "HOW:",
+        s1_l3_desc: "Reasons for choosing this activity, showing dedication",
+        s1_l4_title: "WHY:",
+        s1_l4_desc: "Results, benefits, and enhanced skills",
+        section2_title: "Pro Techniques",
+        s2_l1_title: "Use Flowcharts:",
+        s2_l1_desc: "Visualize system workflow to showcase engineering mindset",
+        s2_l2_title: "Specify Hardware & Code:",
+        s2_l2_desc: "Detail components and programming languages used",
+        s2_l3_title: "🎥 Demo Video QR Code:",
+        s2_l3_highlight: "Very Important!",
+        s2_l3_desc: "Include a QR code linking to a live demonstration video of your project so the committee can see it in action.",
+        section3_title: "💡 Pro Tip",
+        s3_desc: "Committees look for the \"Problem-Solving Process\" rather than perfection. Mention how you overcame obstacles!",
+        btn_prev: "Previous: SOP",
+        btn_next: "Next: Self-Dev Page"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何撰写 <span class="text-accent">项目与作品 (Projects)</span>',
+        page_subtitle: "背景写作技巧、5W1H 结构及添加演示视频二维码",
+        section0_title: "📌 项目背景与重要性",
+        s0_l1_title: "起点与灵感:",
+        s0_l1_desc: "讲述您是在哪里遇到该问题或创意的",
+        s0_l2_title: "问题分析:",
+        s0_l2_desc: "展示系统性思维，说明为什么这个问题很重要",
+        section1_title: "项目展示结构 (5W1H & CAMPHUB)",
+        s1_l1_title: "WHAT (做什么):",
+        s1_l1_desc: "明确指出项目内容及组织者，并附上实际工作照片",
+        s1_l2_title: "WHERE & WHEN (何时何地):",
+        s1_l2_desc: "注明地点和时间，可附上场地或证书合影",
+        s1_l3_title: "HOW (为什么选择):",
+        s1_l3_desc: "选择该活动的原因，展示奉献精神",
+        s1_l4_title: "WHY (收获了什么):",
+        s1_l4_desc: "成果、收益以及提升的技能",
+        section2_title: "专业技巧",
+        s2_l1_title: "使用流程图:",
+        s2_l1_desc: "可视化系统工作流以展示工程思维",
+        s2_l2_title: "注明硬件与代码:",
+        s2_l2_desc: "详细列出所使用的组件和编程语言",
+        s2_l3_title: "🎥 演示视频二维码:",
+        s2_l3_highlight: "非常重要！",
+        s2_l3_desc: "附上链接到项目演示视频的二维码，以便考官实时查看运行效果。",
+        section3_title: "💡 额外提示 (Pro Tip)",
+        s3_desc: "考官寻找的是“解决问题的过程”而非完美。别忘了提及你是如何克服困难的！",
+        btn_prev: "上一步：个人陈述 (SOP)",
+        btn_next: "下一步：自我提升"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

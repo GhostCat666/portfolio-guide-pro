@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>วิธีทำปกหลัง | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .portfolio-img:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-prev {
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-prev:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-journal-check"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีทำ <span class="text-accent">ปกหลัง</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">การปิดท้ายพอร์ตโฟลิโออย่างสมบูรณ์ และการใส่ช่องทางติดต่อเพิ่มเติม</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row align-items-stretch g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูป P1.jpg และ P2.png -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center gap-3">
+        <img src="รูปปกหลัง/P1.jpg" alt="Backcover Example 1" class="img-fluid portfolio-img">
+        <img src="รูปปกหลัง/P2.png" alt="Backcover Example 2" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">📌 องค์ประกอบสำคัญบนปกหลัง</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">คำขอบคุณ (Thank You Message):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">กล่าวขอบคุณคณะกรรมการสั้นๆ ที่พิจารณาแฟ้มสะสมผลงานจนจบ เพื่อแสดงถึงความนอบน้อม</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ช่องทางการติดต่อ (Contact Info):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุช่องทางติดต่ออีกครั้ง (เบอร์โทร, อีเมล, Line) หรือใส่ QR Code เพื่อให้กรรมการติดต่อกลับได้ง่าย</span></li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">คติประจำใจ (Quote):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ทิ้งท้ายด้วยคำคมหรือเป้าหมายสั้นๆ ที่สะท้อนตัวตนและความมุ่งมั่นของคุณ</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">🎨 เทคนิคการออกแบบปกหลัง</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">คุมโทนให้สอดคล้อง (Consistency):</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ใช้ธีมสี ฟอนต์ และสไตล์การออกแบบให้เข้ากับปกหน้าและเนื้อหาภายใน</span></li>
+            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">เน้นความเรียบง่าย (Simplicity):</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ปล่อยให้มีพื้นที่ว่าง (White Space) พักสายตา ไม่ควรใส่ข้อมูลหรือลวดลายที่รกจนเกินไป</span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning mb-0" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section3_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s3_desc">
+            ปกหลังคือความประทับใจสุดท้าย (Lasting Impression) การใส่ QR Code วิดีโอแนะนำตัวสั้นๆ หรือผลงานชิ้นโบว์แดงไว้สแกนดูเพิ่มเติม ก็เป็นไอเดียที่ช่วยเพิ่มความน่าสนใจได้ดีครับ
+          </p>
+          
+          <!-- ปุ่มนำทาง ไป-กลับ -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+            <a href="social.html" class="btn btn-prev rounded-pill px-4 py-2 fw-bold text-center">
+              <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_prev">กลับหน้าก่อนหน้า (กิจกรรมเพื่อสังคม)</span>
+            </a>
+            <a href="portfolio-examples.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold text-center">
+              <span data-i18n="btn_next">หน้าถัดไป (ตัวอย่างพอร์ตโฟลิโอ)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูป P3.png -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปปกหลัง/P3.png" alt="Backcover Example 2" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีทำ <span class="text-accent">ปกหลัง</span>',
+        page_subtitle: "การปิดท้ายพอร์ตโฟลิโออย่างสมบูรณ์ และการใส่ช่องทางติดต่อเพิ่มเติม",
+        section1_title: "📌 องค์ประกอบสำคัญบนปกหลัง",
+        s1_l1_title: "คำขอบคุณ (Thank You Message):",
+        s1_l1_desc: "กล่าวขอบคุณคณะกรรมการสั้นๆ ที่พิจารณาแฟ้มสะสมผลงานจนจบ เพื่อแสดงถึงความนอบน้อม",
+        s1_l2_title: "ช่องทางการติดต่อ (Contact Info):",
+        s1_l2_desc: "ระบุช่องทางติดต่ออีกครั้ง (เบอร์โทร, อีเมล, Line) หรือใส่ QR Code เพื่อให้กรรมการติดต่อกลับได้ง่าย",
+        s1_l3_title: "คติประจำใจ (Quote):",
+        s1_l3_desc: "ทิ้งท้ายด้วยคำคมหรือเป้าหมายสั้นๆ ที่สะท้อนตัวตนและความมุ่งมั่นของคุณ",
+        section2_title: "🎨 เทคนิคการออกแบบปกหลัง",
+        s2_l1_title: "คุมโทนให้สอดคล้อง (Consistency):",
+        s2_l1_desc: "ใช้ธีมสี ฟอนต์ และสไตล์การออกแบบให้เข้ากับปกหน้าและเนื้อหาภายใน",
+        s2_l2_title: "เน้นความเรียบง่าย (Simplicity):",
+        s2_l2_desc: "ปล่อยให้มีพื้นที่ว่าง (White Space) พักสายตา ไม่ควรใส่ข้อมูลหรือลวดลายที่รกจนเกินไป",
+        section3_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s3_desc: "ปกหลังคือความประทับใจสุดท้าย (Lasting Impression) การใส่ QR Code วิดีโอแนะนำตัวสั้นๆ หรือผลงานชิ้นโบว์แดงไว้สแกนดูเพิ่มเติม ก็เป็นไอเดียที่ช่วยเพิ่มความน่าสนใจได้ดีครับ",
+        btn_prev: "กลับหน้าก่อนหน้า (กิจกรรมเพื่อสังคม)",
+        btn_next: "หน้าถัดไป (ตัวอย่างพอร์ตโฟลิโอ)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to make <span class="text-accent">Back Cover</span>',
+        page_subtitle: "Completing the portfolio perfectly and adding additional contact channels",
+        section1_title: "📌 Key Elements on the Back Cover",
+        s1_l1_title: "Thank You Message:",
+        s1_l1_desc: "Briefly thank the committee for reviewing your portfolio to show humility.",
+        s1_l2_title: "Contact Info:",
+        s1_l2_desc: "Provide your contact channels again (Phone, Email, Line) or use a QR Code for easy contact.",
+        s1_l3_title: "Quote:",
+        s1_l3_desc: "End with a short quote or goal that reflects your identity and determination.",
+        section2_title: "🎨 Back Cover Design Techniques",
+        s2_l1_title: "Consistency:",
+        s2_l1_desc: "Use a color theme, font, and design style that matches the front cover and inside content.",
+        s2_l2_title: "Simplicity:",
+        s2_l2_desc: "Leave white space to rest the eyes. Do not overcrowd with too much information or patterns.",
+        section3_title: "💡 Pro Tip",
+        s3_desc: "The back cover leaves a lasting impression. Adding a QR Code to a short self-introduction video or a masterpiece project is a great idea to increase interest.",
+        btn_prev: "Previous: Social Activities",
+        btn_next: "Next: Portfolio Examples"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何制作 <span class="text-accent">封底</span>',
+        page_subtitle: "完美收尾作品集并添加其他联系方式",
+        section1_title: "📌 封底关键要素",
+        s1_l1_title: "感谢致辞 (Thank You Message):",
+        s1_l1_desc: "简短感谢评审委员会审阅您的作品集，以展现您的谦逊。",
+        s1_l2_title: "联系方式 (Contact Info):",
+        s1_l2_desc: "再次提供联系方式（电话、电子邮件、Line）或使用二维码以便评审轻松联系。",
+        s1_l3_title: "座右铭 (Quote):",
+        s1_l3_desc: "以简短的名言或目标结束，反映您的个性和决心。",
+        section2_title: "🎨 封底设计技巧",
+        s2_l1_title: "保持一致性 (Consistency):",
+        s2_l1_desc: "使用与封面和内部内容相匹配的颜色主题、字体和设计风格。",
+        s2_l2_title: "强调简洁 (Simplicity):",
+        s2_l2_desc: "留出空白 (White Space) 让眼睛休息。不要塞入过多信息或繁杂的图案。",
+        section3_title: "💡 额外提示 (Pro Tip)",
+        s3_desc: "封底是留给考官的最后印象。添加一个链接到简短自我介绍视频或杰作的二维码，是增加吸引力的好主意。",
+        btn_prev: "上一步：社会活动",
+        btn_next: "下一步：作品集示例"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

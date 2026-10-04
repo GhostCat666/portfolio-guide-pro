@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>อ่านพอร์ตนิเทศศาสตร์ | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #ec4899; /* สีชมพู สำหรับนิเทศศาสตร์ */
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* แถบเมนูด้านบนสำหรับหน้าอ่าน (ติดหนึบอยู่ด้านบนเสมอ) */
+    .reader-navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* พื้นที่จำลองหน้ากระดาษ ให้เหมาะกับทุกขนาดหน้าจอ */
+    .document-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 10px;
+    }
+    @media (min-width: 768px) {
+      .document-container {
+        padding: 40px 15px;
+      }
+    }
+
+    /* รูปแบบหน้ากระดาษแต่ละหน้า ปรับให้แสดงผลคมชัดและเต็มจอพกพา */
+    .portfolio-page {
+      width: 100%;
+      height: auto;
+      background-color: #fff;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      display: block;
+    }
+    @media (min-width: 768px) {
+      .portfolio-page {
+        margin-bottom: 30px;
+        border-radius: 8px;
+      }
+    }
+
+    /* ปุ่มกลับและปุ่มเลื่อนขึ้น */
+    .btn-reader {
+      color: var(--text-main);
+      background-color: transparent;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+    @media (min-width: 576px) {
+      .btn-reader {
+        font-size: 1rem;
+      }
+    }
+    .btn-reader:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .text-accent { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- แถบเครื่องมือด้านบน -->
+  <nav class="reader-navbar">
+    <div class="container-fluid px-3 px-md-4 d-flex justify-content-between align-items-center">
+      
+      <!-- ปุ่มกลับไปหน้าเลือกพอร์ตนิเทศ -->
+      <a href="port-comm.html" class="btn btn-reader rounded-pill px-3 py-1 fw-bold text-decoration-none">
+        <i class="bi bi-arrow-left me-1"></i> <span>กลับ</span>
+      </a>
+      
+      <!-- ชื่อพอร์ต -->
+      <h6 class="mb-0 fw-bold text-truncate mx-2 text-center fs-7 fs-md-6" style="max-width: 60%;">
+        พอร์ตโฟลิโอ: <span class="text-accent">คณะนิเทศศาสตร์ / มนุษยฯ</span>
+      </h6>
+      
+      <!-- ปุ่มกลับขึ้นบนสุด -->
+      <a href="#" class="btn btn-reader rounded-pill px-3 py-1 fw-bold text-decoration-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <i class="bi bi-arrow-up me-1"></i> <span>บนสุด</span>
+      </a>
+      
+    </div>
+  </nav>
+
+  <!-- พื้นที่แสดงรูปภาพพอร์ตโฟลิโอเรียงกันลงมา -->
+  <main class="document-container">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0001.jpg" class="portfolio-page" alt="หน้าปก" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+1'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0002.jpg" class="portfolio-page" alt="หน้า 2" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+2'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0003.jpg" class="portfolio-page" alt="หน้า 3" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+3'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0004.jpg" class="portfolio-page" alt="หน้า 4" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+4'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0005.jpg" class="portfolio-page" alt="หน้า 5" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+5'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0006.jpg" class="portfolio-page" alt="หน้า 6" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+6'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0007.jpg" class="portfolio-page" alt="หน้า 7" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+7'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0008.jpg" class="portfolio-page" alt="หน้า 8" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+8'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-0009.jpg" class="portfolio-page" alt="หน้า 9" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+9'">
+    
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-00010.jpg" class="portfolio-page" alt="หน้า 10" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+10'">
+
+    <img src="พอร์ตนิเทศ/สื่อสารมวลชนpdf_compressed_page-00011.jpg" class="portfolio-page" alt="หน้า 11" onerror="this.src='https://via.placeholder.com/800x1131/1e293b/ec4899?text=Comm+Page+11'">
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

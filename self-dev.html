@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>กิจกรรมพัฒนาตัวเอง | Portfolio Guide Pro</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    .content-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      height: 100%;
+    }
+    @media (min-width: 992px) {
+      .content-card {
+        padding: 2rem;
+      }
+    }
+    .icon-bullet {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    .text-accent { color: var(--accent); }
+    .text-success-custom { color: var(--success); }
+    .text-warning-custom { color: var(--warning); }
+    
+    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    .portfolio-img {
+      border: 2px solid #334155;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+      background-color: #0f172a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .portfolio-img:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* ปุ่มเปลี่ยนภาษา */
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+    
+    .btn-next {
+      background-color: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    .btn-next:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .btn-prev {
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-prev:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+    .btn-back {
+      background-color: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+    .btn-back:hover {
+      background-color: #334155;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="display-1 text-accent mb-2"><i class="bi bi-person-up"></i></div>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="page_title">วิธีทำหน้า <span class="text-accent">กิจกรรมพัฒนาตัวเอง</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="page_subtitle">การใส่เกียรติบัตร ค่ายวิชาการ และกิจกรรมที่แสดงถึงการเรียนรู้เพิ่มเติมอย่างต่อเนื่อง</p>
+    </div>
+  </header>
+
+  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+    
+    <div class="mb-4">
+      <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
+        <i class="bi bi-arrow-left me-2"></i> <span data-i18n="nav_back">กลับหน้าหลัก</span>
+      </a>
+    </div>
+
+    <div class="row align-items-stretch g-4">
+      
+      <!-- คอลัมน์ซ้าย: รูป P1.jpg จากโฟลเดอร์กิจกรรม -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปกิจกรรม/P1.jpg" alt="Self-Dev Example 1" class="img-fluid portfolio-img">
+      </div>
+
+      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
+      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        
+        <div class="content-card">
+          <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">🚀 แนวทางการเลือกและจัดเกียรติบัตร</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">คัดเลือกเฉพาะที่สอดคล้อง:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เลือกค่ายวิชาการ อบรม หรือเกียรติบัตรที่มีความเกี่ยวข้องกับคณะและสาขาที่จะสมัคร ไม่ควรใส่ทุกใบที่มีอย่างไร้ทิศทาง</span></li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">การอธิบายทักษะที่ได้รับ:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุให้ชัดเจนว่าการเข้าร่วมกิจกรรมนั้นๆ ช่วยพัฒนาทักษะด้านใด เช่น ทักษะการปฏิบัติงานจริง (Hands-on) หรือความรู้เฉพาะทาง</span></li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">น้ำหนักของเกียรติบัตร:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ให้ความสำคัญกับค่ายที่มีกระบวนการคัดเลือก (มีประกาศนียบัตรผ่านการอบรมอย่างเป็นทางการ) มากกว่าการอบรมระยะสั้นทั่วไป</span></li>
+          </ul>
+        </div>
+
+        <div class="content-card border-success">
+          <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">เทคนิคการนำเสนอให้กรรมการประทับใจ</h3>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">เล่าเรื่องผ่านมุมมองการพัฒนา:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">แสดงให้เห็นลำดับขั้นการเรียนรู้ (เช่น เริ่มจากความสนใจ สู่การเข้าร่วมค่าย และต่อยอดมาเป็นโปรเจกต์ของตัวเอง)</span></li>
+            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">จัดวางองค์ประกอบให้สะอาดตา:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">จัดเรียงเกียรติบัตรขนาดพอดี ไม่เล็กหรือใหญ่จนเกินไป พร้อมใส่ชื่อกิจกรรมและวันที่ได้รับให้ครบถ้วน</span></li>
+          </ul>
+        </div>
+
+        <!-- การ์ดเคล็ดลับ -->
+        <div class="content-card border-warning mb-0" style="border-color: var(--warning) !important;">
+          <h3 class="fw-bold mb-3 text-warning-custom border-bottom border-warning pb-2 fs-5 fs-md-4" data-i18n="section3_title">💡 เคล็ดลับเพิ่มเติม (Pro Tip)</h3>
+          <p class="text-secondary mb-4 small" data-i18n="s3_desc">
+            กิจกรรมพัฒนาตัวเองคือเครื่องพิสูจน์ว่าเราเป็นคน "Active" และกระตือรือร้นในการเรียนรู้อยู่เสมอ เลือกกิจกรรมที่แสดงถึง Passion ของเราอย่างแท้จริงครับ!
+          </p>
+          
+          <!-- ปุ่มนำทาง ไป-กลับ -->
+          <div class="d-flex flex-column flex-sm-row justify-content-between gap-3 mt-4">
+            <a href="academic.html" class="btn btn-prev rounded-pill px-4 py-2 fw-bold text-center">
+              <i class="bi bi-arrow-left me-2"></i> <span data-i18n="btn_prev">กลับหน้าก่อนหน้า (ผลงานวิชาการ)</span>
+            </a>
+            <a href="social.html" class="btn btn-next rounded-pill px-4 py-2 fw-bold text-center">
+              <span data-i18n="btn_next">วิธีทำหน้าถัดไป (กิจกรรมเพื่อสังคม)</span> <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- คอลัมน์ขวา: รูป P2.jpg จากโฟลเดอร์กิจกรรม -->
+      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
+        <img src="รูปกิจกรรม/P2.jpg" alt="Self-Dev Example 2" class="img-fluid portfolio-img">
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        nav_back: "กลับหน้าหลัก",
+        page_title: 'วิธีทำหน้า <span class="text-accent">กิจกรรมพัฒนาตัวเอง</span>',
+        page_subtitle: "การใส่เกียรติบัตร ค่ายวิชาการ และกิจกรรมที่แสดงถึงการเรียนรู้เพิ่มเติมอย่างต่อเนื่อง",
+        section1_title: "🚀 แนวทางการเลือกและจัดเกียรติบัตร",
+        s1_l1_title: "คัดเลือกเฉพาะที่สอดคล้อง:",
+        s1_l1_desc: "เลือกค่ายวิชาการ อบรม หรือเกียรติบัตรที่มีความเกี่ยวข้องกับคณะและสาขาที่จะสมัคร ไม่ควรใส่ทุกใบที่มีอย่างไร้ทิศทาง",
+        s1_l2_title: "การอธิบายทักษะที่ได้รับ:",
+        s1_l2_desc: "ระบุให้ชัดเจนว่าการเข้าร่วมกิจกรรมนั้นๆ ช่วยพัฒนาทักษะด้านใด เช่น ทักษะการปฏิบัติงานจริง (Hands-on) หรือความรู้เฉพาะทาง",
+        s1_l3_title: "น้ำหนักของเกียรติบัตร:",
+        s1_l3_desc: "ให้ความสำคัญกับค่ายที่มีกระบวนการคัดเลือก (มีประกาศนียบัตรผ่านการอบรมอย่างเป็นทางการ) มากกว่าการอบรมระยะสั้นทั่วไป",
+        section2_title: "เทคนิคการนำเสนอให้กรรมการประทับใจ",
+        s2_l1_title: "เล่าเรื่องผ่านมุมมองการพัฒนา:",
+        s2_l1_desc: "แสดงให้เห็นลำดับขั้นการเรียนรู้ (เช่น เริ่มจากความสนใจ สู่การเข้าร่วมค่าย และต่อยอดมาเป็นโปรเจกต์ของตัวเอง)",
+        s2_l2_title: "จัดวางองค์ประกอบให้สะอาดตา:",
+        s2_l2_desc: "จัดเรียงเกียรติบัตรขนาดพอดี ไม่เล็กหรือใหญ่จนเกินไป พร้อมใส่ชื่อกิจกรรมและวันที่ได้รับให้ครบถ้วน",
+        section3_title: "💡 เคล็ดลับเพิ่มเติม (Pro Tip)",
+        s3_desc: "กิจกรรมพัฒนาตัวเองคือเครื่องพิสูจน์ว่าเราเป็นคน \"Active\" และกระตือรือร้นในการเรียนรู้อยู่เสมอ เลือกกิจกรรมที่แสดงถึง Passion ของเราอย่างแท้จริงครับ!",
+        btn_prev: "กลับหน้าก่อนหน้า (ผลงานวิชาการ)",
+        btn_next: "วิธีทำหน้าถัดไป (กิจกรรมเพื่อสังคม)"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        nav_back: "Back to Home",
+        page_title: 'How to make <span class="text-accent">Self-Development Page</span>',
+        page_subtitle: "Including certificates, academic camps, and continuous learning activities",
+        section1_title: "🚀 Guidelines for Selecting Certificates",
+        s1_l1_title: "Choose Relevant Items:",
+        s1_l1_desc: "Select camps, workshops, or certificates related to your target faculty. Avoid including unrelated certificates.",
+        s1_l2_title: "Explain Acquired Skills:",
+        s1_l2_desc: "Clearly state how the activity helped develop your skills, such as hands-on experience or specialized knowledge.",
+        s1_l3_title: "Certificate Weight:",
+        s1_l3_desc: "Prioritize camps with a selection process over general short-term workshops.",
+        section2_title: "Presentation Techniques",
+        s2_l1_title: "Tell a Growth Story:",
+        s2_l1_desc: "Show your learning progression (e.g., from initial interest to joining a camp and building your own project).",
+        s2_l2_title: "Clean Layout:",
+        s2_l2_desc: "Arrange certificates neatly with appropriate sizing, event names, and dates.",
+        section3_title: "💡 Pro Tip",
+        s3_desc: "Self-development activities prove that you are active and eager to learn. Choose activities that truly reflect your passion!",
+        btn_prev: "Previous: Academic Works",
+        btn_next: "Next: Social Activities"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        nav_back: "返回首页",
+        page_title: '如何制作 <span class="text-accent">自我提升页面</span>',
+        page_subtitle: "包含证书、学术营及展示持续学习的活动",
+        section1_title: "🚀 证书选择与整理指南",
+        s1_l1_title: "选择相关证书:",
+        s1_l1_desc: "挑选与目标专业相关的学术营、培训或证书，避免盲目罗列所有证书。",
+        s1_l2_title: "阐述获得技能:",
+        s1_l2_desc: "明确指出参与活动如何提升您的技能，例如动手实践能力或专业知识。",
+        s1_l3_title: "证书含金量:",
+        s1_l3_desc: "优先重视有选拔机制的训练营，而非普通的短期培训。",
+        section2_title: "打动考官的技巧",
+        s2_l1_title: "通过成长故事讲述:",
+        s2_l1_desc: "展示您的学习进阶过程（例如：从兴趣到参加训练营再到完成自己的项目）。",
+        s2_l2_title: "保持版面整洁:",
+        s2_l2_desc: "整齐排列证书，大小适中，并附上完整的活动名称和日期。",
+        section3_title: "💡 额外提示 (Pro Tip)",
+        s3_desc: "自我提升活动证明了您是一个积极主动、渴望学习的人。请选择真正能体现您热情的活动！",
+        btn_prev: "上一步：学术成果",
+        btn_next: "下一步：社会活动"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
