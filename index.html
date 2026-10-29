@@ -35,23 +35,30 @@
       border-bottom: 1px solid #334155;
     }
     
-    /* กรอบโฆษณาฝั่งซ้าย/ขวา (ซ่อนบนมือถือเพื่อความสะอาดตา) */
+    /* โฆษณาฝั่งซ้ายและขวา ปรับความสูงตามหน้าจอและป้องกันการล้นเวลาซูม */
     .ad-banner, .ad-banner-right {
       background-color: var(--card-bg);
       border: 1px solid #334155;
       border-radius: 16px;
-      height: 550px;
+      height: 75vh; /* ปรับขนาดตามความสูงของหน้าจอ (Viewport Height) เวลาซูมจะย่อขยายตามสัดส่วน */
+      min-height: 400px;
+      max-height: 600px;
       position: sticky;
       top: 90px;
       overflow: hidden;
     }
+
     .carousel, .carousel-inner, .carousel-item {
       height: 100%;
     }
-    .object-fit-cover {
-      object-fit: cover;
-    }
 
+    /* ทำให้รูปภาพในสไลด์โฆษณาปรับขนาดพอดี ไม่โดนตัดหรือล้นจอเวลาซูม */
+    .ad-banner img, .ad-banner-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* ใช้ contain เพื่อให้รูปแสดงครบถ้วนทุกส่วน ไม่ถูกซูมล้นขอบ */
+      background-color: #0f172a; /* เติมพื้นหลังกันขอบว่าง */
+    }
     /* แบนเนอร์โฆษณา 16:9 ด้านล่าง */
     .bottom-banner-169 {
       width: 100%;
@@ -126,8 +133,64 @@
       background-color: var(--card-bg);
       border-color: #334155;
     }
+
+    /* ปรับแต่งป๊อปอัปโฆษณา / ประกาศ */
+#announcementModal .modal-content {
+  background-color: transparent;
+  border: none;
+}
+#announcementModal .modal-body {
+  padding: 0;
+  position: relative;
+}
+#announcementModal .btn-close-custom {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 2px solid #334155;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  z-index: 1056;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease;
+}
+#announcementModal .btn-close-custom:hover {
+  transform: scale(1.1);
+}
+#announcementModal .announcement-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
   </style>
 </head>
+
+<!-- Modal ประกาศเด้งเมื่อเปิดเว็บ -->
+<div class="modal fade" id="announcementModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!-- ปุ่มปิดป๊อปอัป (X) -->
+        <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <!-- รูปภาพประกาศที่ต้องการแสดง -->
+        <img src="ประกาศหลัก/65655665.jpg" class="announcement-img" alt="ประกาศ">
+      </div>
+    </div>
+  </div>
+</div>
+
 <body>
 
   <!-- Navbar -->
@@ -287,6 +350,14 @@
               <div class="icon-box yellow-icon"><i class="bi bi-patch-check"></i></div>
               <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="c11_title">11. เช็กเกียรติบัตร ถูก/ผิด</h5>
               <p class="text-secondary small mb-0" data-i18n="c11_desc">วิธีตรวจสอบเกียรติบัตรอันไหนใช้ยื่นได้จริง อันไหนปลอมหรือไม่มีน้ำหนัก</p>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="university-1.html" class="category-card p-3 p-md-4">
+              <div class="icon-box"><i class="bi bi-mortarboard"></i></div>
+              <h5 class="fw-bold mb-2 fs-6 fs-md-5" data-i18n="c12_title">12. มหาวิทยาลัยต่างๆ</h5>
+              <p class="text-secondary small mb-0" data-i18n="c12_desc">ข้อมูลมหาวิทยาลัยและเว็บไซต์ของทางมหาวิทยาลัย</p>
             </a>
           </div>
 
@@ -471,6 +542,19 @@
       const savedLang = localStorage.getItem('preferredLanguage') || 'th';
       changeLanguage(savedLang);
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // ตรวจสอบว่าใน Session เคยแสดงป๊อปอัปไปแล้วหรือยัง
+      if (!sessionStorage.getItem('hasShownAnnouncement')) {
+      // ถ้ายังไม่เคยแสดง ให้สั่งให้ Modal เด้งขึ้นมา
+      var announcementModal = new bootstrap.Modal(document.getElementById('announcementModal'));
+      announcementModal.show();
+
+      // บันทึกไว้ว่าได้แสดงป๊อปอัปไปเรียบร้อยแล้ว
+     sessionStorage.setItem('hasShownAnnouncement', 'true');
+    }
+    });
+
   </script>
 </body>
 </html>

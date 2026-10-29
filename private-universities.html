@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Portfolio Guide Pro | มหาวิทยาลัยเอกชนทั่วประเทศ</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --text-main: #f8fafc;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --highlight: #f43f5e;
+      --yellow-accent: #facc15;
+    }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #334155;
+    }
+    .hero-section {
+      padding: 2.5rem 1rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+    
+    .region-title {
+      color: var(--accent);
+      border-bottom: 2px solid #334155;
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    /* สไตล์การ์ดมหาวิทยาลัย พร้อม Effect กดจิ้ม */
+    .uni-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 1.25rem 0.75rem;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* โลโก้ตราสัญลักษณ์ */
+    .uni-logo-box {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+    .uni-logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    /* ชื่อมหาวิทยาลัย */
+    .uni-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+      transition: color 0.3s ease;
+    }
+    .uni-subtitle {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    /* Hover & Active Click Effects (เอฟเฟกต์กดจิ้ม) */
+    .uni-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+      color: var(--text-main);
+    }
+    .uni-card:hover .uni-logo-box {
+      transform: scale(1.08);
+    }
+    .uni-card:hover .uni-title {
+      color: var(--accent);
+    }
+
+    .uni-card:active {
+      transform: scale(0.95);
+      border-color: var(--accent-hover);
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.4);
+      background-color: #24334d;
+    }
+
+    .btn-back {
+      background-color: rgba(30, 41, 59, 0.8);
+      border: 1px solid #334155;
+      color: var(--text-main);
+      border-radius: 30px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-back:hover {
+      background-color: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+
+    .text-accent { color: var(--accent); }
+    
+    .lang-btn {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid #334155;
+      padding: 0.375rem 0.75rem;
+      border-radius: 8px;
+    }
+    .lang-btn:hover, .lang-btn:focus {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .dropdown-menu-dark {
+      background-color: var(--card-bg);
+      border-color: #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-layers-fill text-accent"></i> PortGuide<span class="text-accent">Pro</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center pt-2 pt-lg-0">
+          <li class="nav-item"><a class="nav-link py-2" href="index.html" data-i18n="nav_home">หน้าหลัก</a></li>
+          <li class="nav-item me-lg-3 mb-2 mb-lg-0"><a class="nav-link py-2" href="compare.html" data-i18n="nav_compare">เปรียบเทียบมหาวิทยาลัย</a></li>
+          
+          <!-- ตัวสลับภาษา -->
+          <li class="nav-item dropdown">
+            <button class="btn lang-btn dropdown-toggle w-100 text-start text-lg-center" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-globe"></i> <span id="currentLangLabel">TH</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow" aria-labelledby="langDropdown">
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('th')">🇹🇭 ไทย (TH)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('en')">🇬🇧 English (EN)</a></li>
+              <li><a class="dropdown-item py-2" href="#" onclick="changeLanguage('zh')">🇨🇳 中文 (ZH)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <span class="badge bg-primary px-3 py-2 rounded-pill mb-2" data-i18n="hero_badge">มหาวิทยาลัยเอกชน</span>
+      <h1 class="h3 h1-md fw-bold mb-2" data-i18n="hero_title">มหาวิทยาลัยเอกชน <span class="text-accent">ทั่วประเทศไทย</span></h1>
+      <p class="small text-secondary mb-0" data-i18n="hero_subtitle">กดเลือกที่ตราสัญลักษณ์เพื่อไปยังเว็บไซต์หลักของมหาวิทยาลัยแต่ละแห่ง</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container py-4 flex-grow-1">
+    
+    <!-- ปุ่มย้อนกลับ -->
+    <div class="mb-3">
+      <a href="university-1.html" class="btn-back">
+        <i class="bi bi-arrow-left"></i> <span data-i18n="btn_back">กลับหน้าหมวดหมู่</span>
+      </a>
+    </div>
+
+    <!-- กรุงเทพฯ และปริมณฑล -->
+    <h4 class="region-title"><i class="bi bi-geo-alt-fill me-2"></i><span data-i18n="reg_central">กรุงเทพฯ และปริมณฑล</span></h4>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.bu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/BULogo.svg" alt="มหาวิทยาลัยกรุงเทพ"></div>
+          <div class="uni-title" data-i18n="u_bu">มหาวิทยาลัยกรุงเทพ</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.rsu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/Rangsit_University_Logo.svg.webp" alt="มหาวิทยาลัยรังสิต"></div>
+          <div class="uni-title" data-i18n="u_rsu">มหาวิทยาลัยรังสิต</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.spu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/ตรามหาวิทยาลัยศรีปทุม.svg.png" alt="มหาวิทยาลัยศรีปทุม"></div>
+          <div class="uni-title" data-i18n="u_spu">มหาวิทยาลัยศรีปทุม</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.utcc.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/ตรามหาวิทยาลัยหอการค้าไทย.svg" alt="มหาวิทยาลัยหอการค้าไทย"></div>
+          <div class="uni-title" data-i18n="u_utcc">มหาวิทยาลัยหอการค้าไทย</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.au.edu" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/acu.png" alt="มหาวิทยาลัยอัสสัมชัญ"></div>
+          <div class="uni-title" data-i18n="u_au">มหาวิทยาลัยอัสสัมชัญ (ABAC)</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"  ></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.dpu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/Logo_of_Dhurakij_Pundit_University_(2025).svg.webp" alt="มหาวิทยาลัยธุรกิจบัณฑิตย์"></div>
+          <div class="uni-title" data-i18n="u_dpu">มหาวิทยาลัยธุรกิจบัณฑิตย์</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://kbu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/KasemEnglishLogo.webp" alt="มหาวิทยาลัยเกษมบัณฑิต"></div>
+          <div class="uni-title" data-i18n="u_kbu">มหาวิทยาลัยเกษมบัณฑิต</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.mut.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/imaaages-removebg-preview.png" alt="มหาวิทยาลัยเทคโนโลยีมหานคร"></div>
+          <div class="uni-title" data-i18n="u_mut">มหาวิทยาลัยเทคโนโลยีมหานคร</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ภาคเหนือ -->
+    <h4 class="region-title"><i class="bi bi-geo-alt-fill me-2"></i><span data-i18n="reg_north">ภาคเหนือ</span></h4>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.payap.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/PAYAP.png" alt="มหาวิทยาลัยพายัพ"></div>
+          <div class="uni-title" data-i18n="u_payap">มหาวิทยาลัยพายัพ</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.feu.ac.th/emblem.aspx" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/feu_logo_png.png" alt="มหาวิทยาลัยฟาร์อีสเทอร์น"></div>
+          <div class="uni-title" data-i18n="u_fiu">มหาวิทยาลัยฟาร์อีสเทอร์น</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.northcm.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/logo_northcm.png" alt="มหาวิทยาลัยนอร์ท-เชียงใหม่"></div>
+          <div class="uni-title" data-i18n="u_ncu">มหาวิทยาลัยนอร์ท-เชียงใหม่</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.nation.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/Nation-U-original.png" alt="มหาวิทยาลัยเนชั่น"></div>
+          <div class="uni-title" data-i18n="u_ntu">มหาวิทยาลัยเนชั่น (ลำปาง)</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ภาคตะวันออกเฉียงเหนือ (อีสาน) -->
+    <h4 class="region-title"><i class="bi bi-geo-alt-fill me-2"></i><span data-i18n="reg_isan">ภาคตะวันออกเฉียงเหนือ</span></h4>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.vu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/1_LOGO-มหาวิทยาลัยวงษ์ชวลิตกุล-01.webp" alt="มหาวิทยาลัยวงษ์ชวลิตกุล"></div>
+          <div class="uni-title" data-i18n="u_vu">มหาวิทยาลัยวงษ์ชวลิตกุล</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.cas.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/671989503_20250815091404.png" alt="มหาวิทยาลัยเอเชียอาคเนย์"></div>
+          <div class="uni-title" data-i18n="u_rac">วิทยาลัยบัณฑิตเอเซีย</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ภาคใต้ -->
+    <h4 class="region-title"><i class="bi bi-geo-alt-fill me-2"></i><span data-i18n="reg_south">ภาคใต้</span></h4>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.ftu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/aa-removebg-preview-removebg-preview (1).png" alt="มหาวิทยาลัยฟาฏอนี"></div>
+          <div class="uni-title" data-i18n="u_ftu">มหาวิทยาลัยฟาฏอนี</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+      <div class="col-6 col-sm-4 col-md-3">
+        <a href="https://www.hu.ac.th" target="_blank" class="uni-card">
+          <div class="uni-logo-box"><img src="โลโก้มหาวิทยาลัยเอกชน/images__1_-removebg-preview.png" alt="มหาวิทยาลัยหาดใหญ่"></div>
+          <div class="uni-title" data-i18n="u_hu">มหาวิทยาลัยหาดใหญ่</div>
+          <div class="uni-subtitle" data-i18n="u_link_text">เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i></div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const translations = {
+      th: {
+        nav_home: "หน้าหลัก",
+        nav_compare: "เปรียบเทียบมหาวิทยาลัย",
+        hero_badge: "มหาวิทยาลัยเอกชน",
+        hero_title: 'มหาวิทยาลัยเอกชน <span class="text-accent">ทั่วประเทศไทย</span>',
+        hero_subtitle: "กดเลือกที่ตราสัญลักษณ์เพื่อไปยังเว็บไซต์หลักของมหาวิทยาลัยแต่ละแห่ง",
+        btn_back: "กลับหน้าหมวดหมู่",
+        u_link_text: 'เข้าสู่เว็บไซต์หลัก <i class="bi bi-box-arrow-up-right ms-1"></i>',
+        reg_north: "ภาคเหนือ",
+        reg_central: "กรุงเทพฯ และปริมณฑล",
+        reg_isan: "ภาคตะวันออกเฉียงเหนือ",
+        reg_south: "ภาคใต้",
+        u_bu: "มหาวิทยาลัยกรุงเทพ",
+        u_rsu: "มหาวิทยาลัยรังสิต",
+        u_spu: "มหาวิทยาลัยศรีปทุม",
+        u_utcc: "มหาวิทยาลัยหอการค้าไทย",
+        u_au: "มหาวิทยาลัยอัสสัมชัญ (ABAC)",
+        u_dpu: "มหาวิทยาลัยธุรกิจบัณฑิตย์",
+        u_kbu: "มหาวิทยาลัยเกษมบัณฑิต",
+        u_mut: "มหาวิทยาลัยเทคโนโลยีมหานคร",
+        u_payap: "มหาวิทยาลัยพายัพ",
+        u_fiu: "มหาวิทยาลัยฟาร์อีสเทอร์น",
+        u_ncu: "มหาวิทยาลัยนอร์ท-เชียงใหม่",
+        u_ntu: "มหาวิทยาลัยเนชั่น (ลำปาง)",
+        u_vu: "มหาวิทยาลัยวงษ์ชวลิตกุล",
+        u_rac: "วิทยาลัยบัณฑิตเอเซีย",
+        u_ftu: "มหาวิทยาลัยฟาฏอนี",
+        u_hu: "มหาวิทยาลัยหาดใหญ่"
+      },
+      en: {
+        nav_home: "Home",
+        nav_compare: "Compare Universities",
+        hero_badge: "Private Universities",
+        hero_title: 'Private Universities <span class="text-accent">in Thailand</span>',
+        hero_subtitle: "Click/tap on the logo to visit the official website",
+        btn_back: "Back to Categories",
+        u_link_text: 'Visit Website <i class="bi bi-box-arrow-up-right ms-1"></i>',
+        reg_north: "Northern Region",
+        reg_central: "Bangkok & Vicinity",
+        reg_isan: "Northeastern Region (Isan)",
+        reg_south: "Southern Region",
+        u_bu: "Bangkok University",
+        u_rsu: "Rangsit University",
+        u_spu: "Sripatum University",
+        u_utcc: "UTCC",
+        u_au: "Assumption University (ABAC)",
+        u_dpu: "Dhurakij Pundit University",
+        u_kbu: "Kasem Bundit University",
+        u_mut: "Mahanakorn University of Technology",
+        u_payap: "Payap University",
+        u_fiu: "The Far Eastern University",
+        u_ncu: "North-Chiang Mai University",
+        u_ntu: "Nation University (Lampang)",
+        u_vu: "Vongchavalitkul University",
+        u_rac: "College of Asian Scholars",
+        u_ftu: "Fatoni University",
+        u_hu: "Hatyai University"
+      },
+      zh: {
+        nav_home: "首页",
+        nav_compare: "大学对比",
+        hero_badge: "私立大学",
+        hero_title: '泰国全国 <span class="text-accent">私立大学</span>',
+        hero_subtitle: "点击校徽进入大学官方网站",
+        btn_back: "返回分类",
+        u_link_text: '访问官网 <i class="bi bi-box-arrow-up-right ms-1"></i>',
+        reg_north: "北部地区",
+        reg_central: "曼谷及周边",
+        reg_isan: "东北部地区",
+        reg_south: "南部地区",
+        u_bu: "曼谷大学",
+        u_rsu: "兰实大学",
+        u_spu: "斯巴顿大学",
+        u_utcc: "泰国商会大学",
+        u_au: "易三仓大学 (ABAC)",
+        u_dpu: "博仁大学",
+        u_kbu: "甘拉雅妮/甘森大学",
+        u_mut: "马汉科理工大学",
+        u_payap: "西北大学 (Payap)",
+        u_fiu: "远东大学",
+        u_ncu: "北部清迈大学",
+        u_ntu: "国家大学 (南邦)",
+        u_vu: "翁查瓦利库大学",
+        u_rac: "亚洲学者学院",
+        u_ftu: "法塔尼大学",
+        u_hu: "合艾大学"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      document.getElementById('currentLangLabel').innerText = lang.toUpperCase();
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage') || 'th';
+      changeLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>
