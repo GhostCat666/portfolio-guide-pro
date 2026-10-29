@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>วิธีทำปกหลัง | Portfolio Guide Pro</title>
+  <link rel="icon" type="image/png" href="Neon GHOSTCORE Tech Emblem.png">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -41,7 +42,6 @@
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      height: 100%;
     }
     @media (min-width: 992px) {
       .content-card {
@@ -57,20 +57,41 @@
     .text-success-custom { color: var(--success); }
     .text-warning-custom { color: var(--warning); }
     
-    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    /* สไตล์สำหรับกล่องเลื่อนรูปภาพตรงกลาง */
+    .portfolio-slider-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #334155;
+    }
+    .portfolio-slider-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
     .portfolio-img {
       border: 2px solid #334155;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      display: block;
+      flex: 0 0 auto;
+      width: 240px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: center;
       background-color: #0f172a;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .portfolio-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
       border-color: var(--accent);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
@@ -163,7 +184,7 @@
     </div>
   </header>
 
-  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+  <main class="container py-4 px-3 px-md-4">
     
     <div class="mb-4">
       <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
@@ -171,31 +192,49 @@
       </a>
     </div>
 
-    <div class="row align-items-stretch g-4">
-      
-      <!-- คอลัมน์ซ้าย: รูป P1.jpg และ P2.png -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center gap-3">
-        <img src="รูปปกหลัง/P1.jpg" alt="Backcover Example 1" class="img-fluid portfolio-img">
-        <img src="รูปปกหลัง/P2.png" alt="Backcover Example 2" class="img-fluid portfolio-img">
-      </div>
+    <!-- ส่วนเนื้อหาหลักแบบกึ่งกลาง -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
 
-      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
-      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        <!-- 🖼️ กล่องเลื่อนดูรูปภาพตัวอย่างปกหลัง (รวม P1, P2 และ P3 ไว้ตรงนี้) -->
+        <div class="content-card">
+          <h5 class="fw-bold mb-3 text-accent" data-i18n="examples_title"><i class="bi bi-images me-2"></i>ตัวอย่างหน้าปกหลัง (เลื่อนดูรูปด้านข้างได้)</h5>
+          <div class="portfolio-slider-container">
+            <img src="รูปปกหลัง/P1.jpg" alt="Backcover Example 1" class="portfolio-img">
+            <img src="รูปปกหลัง/P2.png" alt="Backcover Example 2" class="portfolio-img">
+            <img src="รูปปกหลัง/P3.png" alt="Backcover Example 3" class="portfolio-img">
+          </div>
+        </div>
         
         <div class="content-card">
           <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">📌 องค์ประกอบสำคัญบนปกหลัง</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">คำขอบคุณ (Thank You Message):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">กล่าวขอบคุณคณะกรรมการสั้นๆ ที่พิจารณาแฟ้มสะสมผลงานจนจบ เพื่อแสดงถึงความนอบน้อม</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ช่องทางการติดต่อ (Contact Info):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุช่องทางติดต่ออีกครั้ง (เบอร์โทร, อีเมล, Line) หรือใส่ QR Code เพื่อให้กรรมการติดต่อกลับได้ง่าย</span></li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">คติประจำใจ (Quote):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ทิ้งท้ายด้วยคำคมหรือเป้าหมายสั้นๆ ที่สะท้อนตัวตนและความมุ่งมั่นของคุณ</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l1_title">คำขอบคุณ (Thank You Message):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">กล่าวขอบคุณคณะกรรมการสั้นๆ ที่พิจารณาแฟ้มสะสมผลงานจนจบ เพื่อแสดงถึงความนอบน้อม</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l2_title">ช่องทางการติดต่อ (Contact Info):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุช่องทางติดต่ออีกครั้ง (เบอร์โทร, อีเมล, Line) หรือใส่ QR Code เพื่อให้กรรมการติดต่อกลับได้ง่าย</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l3_title">คติประจำใจ (Quote):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ทิ้งท้ายด้วยคำคมหรือเป้าหมายสั้นๆ ที่สะท้อนตัวตนและความมุ่งมั่นของคุณ</span></div>
+            </li>
           </ul>
         </div>
 
         <div class="content-card border-success">
           <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">🎨 เทคนิคการออกแบบปกหลัง</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">คุมโทนให้สอดคล้อง (Consistency):</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ใช้ธีมสี ฟอนต์ และสไตล์การออกแบบให้เข้ากับปกหน้าและเนื้อหาภายใน</span></li>
-            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">เน้นความเรียบง่าย (Simplicity):</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ปล่อยให้มีพื้นที่ว่าง (White Space) พักสายตา ไม่ควรใส่ข้อมูลหรือลวดลายที่รกจนเกินไป</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l1_title">คุมโทนให้สอดคล้อง (Consistency):</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ใช้ธีมสี ฟอนต์ และสไตล์การออกแบบให้เข้ากับปกหน้าและเนื้อหาภายใน</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l2_title">เน้นความเรียบง่าย (Simplicity):</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ปล่อยให้มีพื้นที่ว่าง (White Space) พักสายตา ไม่ควรใส่ข้อมูลหรือลวดลายที่รกจนเกินไป</span></div>
+            </li>
           </ul>
         </div>
 
@@ -218,12 +257,6 @@
         </div>
 
       </div>
-
-      <!-- คอลัมน์ขวา: รูป P3.png -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
-        <img src="รูปปกหลัง/P3.png" alt="Backcover Example 2" class="img-fluid portfolio-img">
-      </div>
-
     </div>
   </main>
 
@@ -237,6 +270,7 @@
         nav_back: "กลับหน้าหลัก",
         page_title: 'วิธีทำ <span class="text-accent">ปกหลัง</span>',
         page_subtitle: "การปิดท้ายพอร์ตโฟลิโออย่างสมบูรณ์ และการใส่ช่องทางติดต่อเพิ่มเติม",
+        examples_title: 'ตัวอย่างหน้าปกหลัง (เลื่อนดูรูปด้านข้างได้)',
         section1_title: "📌 องค์ประกอบสำคัญบนปกหลัง",
         s1_l1_title: "คำขอบคุณ (Thank You Message):",
         s1_l1_desc: "กล่าวขอบคุณคณะกรรมการสั้นๆ ที่พิจารณาแฟ้มสะสมผลงานจนจบ เพื่อแสดงถึงความนอบน้อม",
@@ -260,6 +294,7 @@
         nav_back: "Back to Home",
         page_title: 'How to make <span class="text-accent">Back Cover</span>',
         page_subtitle: "Completing the portfolio perfectly and adding additional contact channels",
+        examples_title: 'Back Cover Examples (Scroll sideways to view)',
         section1_title: "📌 Key Elements on the Back Cover",
         s1_l1_title: "Thank You Message:",
         s1_l1_desc: "Briefly thank the committee for reviewing your portfolio to show humility.",
@@ -283,6 +318,7 @@
         nav_back: "返回首页",
         page_title: '如何制作 <span class="text-accent">封底</span>',
         page_subtitle: "完美收尾作品集并添加其他联系方式",
+        examples_title: '封底示例（可左右滑动查看）',
         section1_title: "📌 封底关键要素",
         s1_l1_title: "感谢致辞 (Thank You Message):",
         s1_l1_desc: "简短感谢评审委员会审阅您的作品集，以展现您的谦逊。",

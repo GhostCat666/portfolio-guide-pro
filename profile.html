@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>วิธีทำหน้าประวัติ | Portfolio Guide Pro</title>
+  <link rel="icon" type="image/png" href="Neon GHOSTCORE Tech Emblem.png">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -41,7 +42,6 @@
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      height: 100%;
     }
     @media (min-width: 992px) {
       .content-card {
@@ -57,16 +57,37 @@
     .text-success-custom { color: var(--success); }
     .text-warning-custom { color: var(--warning); }
     
-    /* สไตล์สำหรับรูปภาพตัวอย่าง */
+    /* สไตล์สำหรับกล่องเลื่อนรูปภาพตรงกลาง */
+    .portfolio-slider-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #334155;
+    }
+    .portfolio-slider-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
     .portfolio-img {
       border: 2px solid #334155;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 280px;
-      margin: 0 auto;
-      display: block;
+      flex: 0 0 auto;
+      width: 220px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: center;
       background-color: #0f172a;
+      transition: all 0.3s ease;
     }
     .portfolio-img:hover {
       transform: scale(1.03);
@@ -162,7 +183,7 @@
     </div>
   </header>
 
-  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+  <main class="container py-4 px-3 px-md-4">
     
     <div class="mb-4">
       <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
@@ -170,32 +191,56 @@
       </a>
     </div>
 
-    <div class="row g-4">
-      
-      <!-- คอลัมน์ซ้าย: รูปภาพ 1 P.png และ 2 P.png -->
-      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center gap-3">
-        <img src="รูปประวัติ/P1.png" alt="Profile Example 1" class="img-fluid portfolio-img">
-        <img src="รูปประวัติ/P2.png" alt="Profile Example 2" class="img-fluid portfolio-img">
-      </div>
+    <!-- ส่วนเนื้อหาหลักแบบกึ่งกลาง -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
 
-      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำ -->
-      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        <!-- 🖼️ กล่องเลื่อนดูรูปภาพตัวอย่างประวัติส่วนตัว (P1 - P4 มารวมกันตรงนี้) -->
+        <div class="content-card">
+          <h5 class="fw-bold mb-3 text-accent" data-i18n="examples_title"><i class="bi bi-images me-2"></i>ตัวอย่างหน้าประวัติส่วนตัว (เลื่อนดูรูปด้านข้างได้)</h5>
+          <div class="portfolio-slider-container">
+            <img src="รูปประวัติ/P1.png" alt="Profile Example 1" class="portfolio-img">
+            <img src="รูปประวัติ/P2.png" alt="Profile Example 2" class="portfolio-img">
+            <img src="รูปประวัติ/P3.png" alt="Profile Example 3" class="portfolio-img">
+            <img src="รูปประวัติ/P4.png" alt="Profile Example 4" class="portfolio-img">
+          </div>
+        </div>
         
+        <!-- ข้อมูลพื้นฐานที่จำเป็นต้องมี -->
         <div class="content-card">
           <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">ข้อมูลพื้นฐานที่จำเป็นต้องมี</h3>
           <ul class="list-unstyled mb-0 small">
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">ข้อมูลส่วนตัว:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">ใส่ข้อมูลส่วนตัวพอประมาณเท่าที่จำเป็น เช่น ชื่อ-สกุล วันเกิด สัญชาติ ศาสนา และแผนการเรียน</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ประวัติการศึกษา:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">แนะนำให้ใส่เฉพาะระดับมัธยมปลาย (พร้อมผลการเรียนเฉลี่ย GPAX) แต่สามารถเพิ่มระดับมัธยมต้นได้หากพื้นที่เหลือ</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">ข้อมูลการติดต่อ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ใส่ข้อมูลการติดต่อให้ครบทุกช่องทาง เช่น เบอร์โทรศัพท์, อีเมล, และที่อยู่ปัจจุบัน เพื่อความสะดวกในการติดต่อกลับ</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l1_title">ข้อมูลส่วนตัว:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">ใส่ข้อมูลส่วนตัวพอประมาณเท่าที่จำเป็น เช่น ชื่อ-สกุล วันเกิด สัญชาติ ศาสนา และแผนการเรียน</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l2_title">ประวัติการศึกษา:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">แนะนำให้ใส่เฉพาะระดับมัธยมปลาย (พร้อมผลการเรียนเฉลี่ย GPAX) แต่สามารถเพิ่มระดับมัธยมต้นได้หากพื้นที่เหลือ</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l3_title">ข้อมูลการติดต่อ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">ใส่ข้อมูลการติดต่อให้ครบทุกช่องทาง เช่น เบอร์โทรศัพท์, อีเมล, และที่อยู่ปัจจุบัน เพื่อความสะดวกในการติดต่อกลับ</span></div>
+            </li>
           </ul>
         </div>
 
+        <!-- เทคนิคสร้าง First Impression ให้โดดเด่น -->
         <div class="content-card border-success">
           <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">เทคนิคสร้าง First Impression ให้โดดเด่น</h3>
           <ul class="list-unstyled mb-0 small">
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">ความสามารถพิเศษ/จุดเด่น:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ลิสต์ทักษะทั้ง Hard Skill (เช่น การเขียนโปรแกรม, กราฟิก) และ Soft Skill (เช่น ความเป็นผู้นำ, การทำงานเป็นทีม) ที่มีประโยชน์ต่อสาขาที่เรียน</span></li>
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ไฮไลต์ผลงานเด่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ยกผลงานชิ้นโบว์แดง หรือเกียรติประวัติที่ภูมิใจที่สุดมาใส่ในหน้านี้ เพื่อดึงดูดความสนใจกรรมการตั้งแต่หน้าแรก</span></li>
-            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l3_title">เป้าหมายชีวิต (Life Goals):</strong> <span class="text-secondary" data-i18n="s2_l3_desc">เขียนเป้าหมายความคาดหวังในการเรียน ต้องเขียนให้สอดคล้องกับ SOP (Statement of Purpose) และคณะที่อยากเข้า</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l1_title">ความสามารถพิเศษ/จุดเด่น:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">ลิสต์ทักษะทั้ง Hard Skill (เช่น การเขียนโปรแกรม, กราฟิก) และ Soft Skill (เช่น ความเป็นผู้นำ, การทำงานเป็นทีม) ที่มีประโยชน์ต่อสาขาที่เรียน</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l2_title">ไฮไลต์ผลงานเด่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">ยกผลงานชิ้นโบว์แดง หรือเกียรติประวัติที่ภูมิใจที่สุดมาใส่ในหน้านี้ เพื่อดึงดูดความสนใจกรรมการตั้งแต่หน้าแรก</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l3_title">เป้าหมายชีวิต (Life Goals):</strong> <span class="text-secondary" data-i18n="s2_l3_desc">เขียนเป้าหมายความคาดหวังในการเรียน ต้องเขียนให้สอดคล้องกับ SOP (Statement of Purpose) และคณะที่อยากเข้า</span></div>
+            </li>
           </ul>
         </div>
 
@@ -218,13 +263,6 @@
         </div>
 
       </div>
-
-      <!-- คอลัมน์ขวา: รูปภาพ 3 P.png และ 4 P.png -->
-      <div class="col-12 col-lg-3 d-flex flex-row flex-lg-column justify-content-center gap-3">
-        <img src="รูปประวัติ/P3.png" alt="Profile Example 3" class="img-fluid portfolio-img">
-        <img src="รูปประวัติ/P4.png" alt="Profile Example 4" class="img-fluid portfolio-img">
-      </div>
-
     </div>
   </main>
 
@@ -238,6 +276,7 @@
         nav_back: "กลับหน้าหลัก",
         page_title: 'วิธีทำหน้า <span class="text-accent">ประวัติส่วนตัว (Profile)</span>',
         page_subtitle: "สร้าง First Impression ที่ดี นำเสนอตัวตนให้เข้าตากรรมการ",
+        examples_title: 'ตัวอย่างหน้าประวัติส่วนตัว (เลื่อนดูรูปด้านข้างได้)',
         section1_title: "ข้อมูลพื้นฐานที่จำเป็นต้องมี",
         s1_l1_title: "ข้อมูลส่วนตัว:",
         s1_l1_desc: "ใส่ข้อมูลส่วนตัวพอประมาณเท่าที่จำเป็น เช่น ชื่อ-สกุล วันเกิด สัญชาติ ศาสนา และแผนการเรียน",
@@ -263,6 +302,7 @@
         nav_back: "Back to Home",
         page_title: 'How to write a <span class="text-accent">Profile Page</span>',
         page_subtitle: "Create a great first impression and present your best self",
+        examples_title: 'Profile Examples (Scroll sideways to view)',
         section1_title: "Essential Information",
         s1_l1_title: "Personal Info:",
         s1_l1_desc: "Include necessary details like Name, Date of Birth, Nationality, Religion, and Study Plan",
@@ -288,6 +328,7 @@
         nav_back: "返回首页",
         page_title: '如何编写 <span class="text-accent">个人简介 (Profile)</span>',
         page_subtitle: "留下极佳的第一印象，向考官展示最好的自己",
+        examples_title: '个人简介示例（可左右滑动查看）',
         section1_title: "基本必要信息",
         s1_l1_title: "个人信息:",
         s1_l1_desc: "仅提供必要的个人详细信息，如姓名、出生日期、国籍、宗教和学习计划",

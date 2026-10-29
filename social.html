@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>กิจกรรมเพื่อสังคม | Portfolio Guide Pro</title>
+  <link rel="icon" type="image/png" href="Neon GHOSTCORE Tech Emblem.png">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -41,7 +42,6 @@
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      height: 100%;
     }
     @media (min-width: 992px) {
       .content-card {
@@ -57,20 +57,41 @@
     .text-success-custom { color: var(--success); }
     .text-warning-custom { color: var(--warning); }
     
-    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    /* สไตล์สำหรับกล่องเลื่อนรูปภาพตรงกลาง */
+    .portfolio-slider-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #334155;
+    }
+    .portfolio-slider-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
     .portfolio-img {
       border: 2px solid #334155;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      display: block;
+      flex: 0 0 auto;
+      width: 240px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: center;
       background-color: #0f172a;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .portfolio-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
       border-color: var(--accent);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
@@ -163,7 +184,7 @@
     </div>
   </header>
 
-  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+  <main class="container py-4 px-3 px-md-4">
     
     <div class="mb-4">
       <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
@@ -171,30 +192,48 @@
       </a>
     </div>
 
-    <div class="row align-items-stretch g-4">
-      
-      <!-- คอลัมน์ซ้าย: รูป P1.jpg -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
-        <img src="รูปส/P1.jpg" alt="Social Activity Example 1" class="img-fluid portfolio-img">
-      </div>
+    <!-- ส่วนเนื้อหาหลักแบบกึ่งกลาง -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
 
-      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
-      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        <!-- 🖼️ กล่องเลื่อนดูรูปภาพตัวอย่างกิจกรรมเพื่อสังคม (P1 และ P2 มารวมกันตรงนี้) -->
+        <div class="content-card">
+          <h5 class="fw-bold mb-3 text-accent" data-i18n="examples_title"><i class="bi bi-images me-2"></i>ตัวอย่างหน้ากิจกรรมเพื่อสังคม (เลื่อนดูรูปด้านข้างได้)</h5>
+          <div class="portfolio-slider-container">
+            <img src="รูปส/P1.jpg" alt="Social Activity Example 1" class="portfolio-img">
+            <img src="รูปส/P2.jpg" alt="Social Activity Example 2" class="portfolio-img">
+          </div>
+        </div>
         
         <div class="content-card">
           <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">🤝 แนวทางการนำเสนอกิจกรรมจิตอาสา</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">สะท้อนจิตสาธารณะ:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เน้นกิจกรรมที่แสดงถึงความเสียสละ การช่วยเหลือสังคม หรือการพัฒนาชุมชนรอบตัวอย่างแท้จริง</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">ภาพถ่ายการปฏิบัติงานจริง:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ควรมีรูปถ่ายในขณะกำลังปฏิบัติกิจกรรมจริง (Action shot) เพื่อความน่าเชื่อถือ มากกว่าการมีแค่เกียรติบัตรอย่างเดียว</span></li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">ผลลัพธ์และคุณค่าที่ได้รับ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">อธิบายว่ากิจกรรมนั้นๆ สร้างประโยชน์อะไรให้สังคม และหล่อหลอมทัศนคติที่ดีอย่างไรให้กับตัวเรา</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l1_title">สะท้อนจิตสาธารณะ:</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เน้นกิจกรรมที่แสดงถึงความเสียสละ การช่วยเหลือสังคม หรือการพัฒนาชุมชนรอบตัวอย่างแท้จริง</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l2_title">ภาพถ่ายการปฏิบัติงานจริง:</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ควรมีรูปถ่ายในขณะกำลังปฏิบัติกิจกรรมจริง (Action shot) เพื่อความน่าเชื่อถือ มากกว่าการมีแค่เกียรติบัตรอย่างเดียว</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l3_title">ผลลัพธ์และคุณค่าที่ได้รับ:</strong> <span class="text-secondary" data-i18n="s1_l3_desc">อธิบายว่ากิจกรรมนั้นๆ สร้างประโยชน์อะไรให้สังคม และหล่อหลอมทัศนคติที่ดีอย่างไรให้กับตัวเรา</span></div>
+            </li>
           </ul>
         </div>
 
         <div class="content-card border-success">
           <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">⭐ การแสดงภาวะผู้นำ (Leadership & Council)</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">บทบาทในสภานักเรียนหรือโรงเรียน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">หากมีประสบการณ์เป็นประธานนักเรียน คณะกรรมการสภานักเรียน หรือหัวหน้ากลุ่ม ให้ชูบทบาทการบริหารจัดการและการแก้ปัญหาเฉพาะหน้า</span></li>
-            <li class="mb-2"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ทักษะการทำงานร่วมกับผู้อื่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แสดงให้กรรมการเห็นว่าเราสามารถประสานงาน สื่อสาร และนำพาทีมไปสู่ความสำเร็จได้</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l1_title">บทบาทในสภานักเรียนหรือโรงเรียน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">หากมีประสบการณ์เป็นประธานนักเรียน คณะกรรมการสภานักเรียน หรือหัวหน้ากลุ่ม ให้ชูบทบาทการบริหารจัดการและการแก้ปัญหาเฉพาะหน้า</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l2_title">ทักษะการทำงานร่วมกับผู้อื่น:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แสดงให้กรรมการเห็นว่าเราสามารถประสานงาน สื่อสาร และนำพาทีมไปสู่ความสำเร็จได้</span></div>
+            </li>
           </ul>
         </div>
 
@@ -217,12 +256,6 @@
         </div>
 
       </div>
-
-      <!-- คอลัมน์ขวา: รูป P2.jpg -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
-        <img src="รูปส/P2.jpg" alt="Social Activity Example 2" class="img-fluid portfolio-img">
-      </div>
-
     </div>
   </main>
 
@@ -236,6 +269,7 @@
         nav_back: "กลับหน้าหลัก",
         page_title: 'วิธีทำหน้า <span class="text-accent">กิจกรรมเพื่อสังคม</span>',
         page_subtitle: "การนำเสนองานสภานักเรียน จิตอาสา และภาวะผู้นำ (Leadership) เพื่อสะท้อนตัวตนรอบด้าน",
+        examples_title: 'ตัวอย่างหน้ากิจกรรมเพื่อสังคม (เลื่อนดูรูปด้านข้างได้)',
         section1_title: "🤝 แนวทางการนำเสนอกิจกรรมจิตอาสา",
         s1_l1_title: "สะท้อนจิตสาธารณะ:",
         s1_l1_desc: "เน้นกิจกรรมที่แสดงถึงความเสียสละ การช่วยเหลือสังคม หรือการพัฒนาชุมชนรอบตัวอย่างแท้จริง",
@@ -259,6 +293,7 @@
         nav_back: "Back to Home",
         page_title: 'How to make <span class="text-accent">Social Activities Page</span>',
         page_subtitle: "Presenting student council work, volunteering, and leadership skills to reflect your well-rounded profile",
+        examples_title: 'Social Activity Examples (Scroll sideways to view)',
         section1_title: "🤝 Guidelines for Volunteering Activities",
         s1_l1_title: "Reflect Public Mind:",
         s1_l1_desc: "Focus on activities demonstrating sacrifice, social assistance, or genuine community development.",
@@ -282,6 +317,7 @@
         nav_back: "返回首页",
         page_title: '如何制作 <span class="text-accent">社会活动页面</span>',
         page_subtitle: "展示学生会工作、志愿服务及领导力，全面体现个人综合素质",
+        examples_title: '社会活动示例（可左右滑动查看）',
         section1_title: "🤝 志愿服务活动指南",
         s1_l1_title: "体现公益精神:",
         s1_l1_desc: "重点关注体现奉献精神、社会援助或社区发展的真实活动。",

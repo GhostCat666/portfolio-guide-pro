@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>Portfolio Guide Pro | สภานักเรียน</title>
+  <title>Portfolio Guide Pro </title>
+  <link rel="icon" type="image/png" href="Neon GHOSTCORE Tech Emblem.png">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -35,12 +36,31 @@
       border-bottom: 1px solid #334155;
     }
     
+    /* สไตล์และเอฟเฟกต์สำหรับโลโก้ด้านบน */
+    .hero-logo-container {
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .hero-logo {
+      height: 70px; /* ปรับขนาดความสูงโลโก้ตามต้องการ */
+      width: auto;
+      object-fit: contain;
+      /* เอฟเฟกต์เรืองแสงนีออนสีฟ้า และเงาสุดพรีเมียม */
+      filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.6)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    /* เอฟเฟกต์เมื่อเอาเมาส์ไปชี้ที่โลโก้ (ขยายใหญ่ขึ้นเล็กน้อยและเรืองแสงเด่นขึ้น) */
+    .hero-logo:hover {
+      transform: scale(1.08) rotate(2deg);
+      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.9)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+    }
+
     /* โฆษณาฝั่งซ้ายและขวา ปรับความสูงตามหน้าจอและป้องกันการล้นเวลาซูม */
     .ad-banner, .ad-banner-right {
       background-color: var(--card-bg);
       border: 1px solid #334155;
       border-radius: 16px;
-      height: 75vh; /* ปรับขนาดตามความสูงของหน้าจอ (Viewport Height) เวลาซูมจะย่อขยายตามสัดส่วน */
+      height: 75vh;
       min-height: 400px;
       max-height: 600px;
       position: sticky;
@@ -52,14 +72,13 @@
       height: 100%;
     }
 
-    /* ทำให้รูปภาพในสไลด์โฆษณาปรับขนาดพอดี ไม่โดนตัดหรือล้นจอเวลาซูม */
     .ad-banner img, .ad-banner-right img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* ใช้ contain เพื่อให้รูปแสดงครบถ้วนทุกส่วน ไม่ถูกซูมล้นขอบ */
-      background-color: #0f172a; /* เติมพื้นหลังกันขอบว่าง */
+      object-fit: contain;
+      background-color: #0f172a;
     }
-    /* แบนเนอร์โฆษณา 16:9 ด้านล่าง */
+    
     .bottom-banner-169 {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -135,43 +154,42 @@
     }
 
     /* ปรับแต่งป๊อปอัปโฆษณา / ประกาศ */
-#announcementModal .modal-content {
-  background-color: transparent;
-  border: none;
-}
-#announcementModal .modal-body {
-  padding: 0;
-  position: relative;
-}
-#announcementModal .btn-close-custom {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  background-color: #ffffff;
-  color: #0f172a;
-  border: 2px solid #334155;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  z-index: 1056;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.2s ease;
-}
-#announcementModal .btn-close-custom:hover {
-  transform: scale(1.1);
-}
-#announcementModal .announcement-img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  display: block;
-}
-
+    #announcementModal .modal-content {
+      background-color: transparent;
+      border: none;
+    }
+    #announcementModal .modal-body {
+      padding: 0;
+      position: relative;
+    }
+    #announcementModal .btn-close-custom {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background-color: #ffffff;
+      color: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      z-index: 1056;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+    #announcementModal .btn-close-custom:hover {
+      transform: scale(1.1);
+    }
+    #announcementModal .announcement-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      display: block;
+    }
   </style>
 </head>
 
@@ -180,11 +198,9 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-body">
-        <!-- ปุ่มปิดป๊อปอัป (X) -->
         <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
           <i class="bi bi-x-lg"></i>
         </button>
-        <!-- รูปภาพประกาศที่ต้องการแสดง -->
         <img src="ประกาศหลัก/65655665.jpg" class="announcement-img" alt="ประกาศ">
       </div>
     </div>
@@ -226,7 +242,13 @@
   <!-- Hero Section -->
   <header class="hero-section text-center">
     <div class="container">
-      <span class="badge bg-primary px-3 py-2 rounded-pill mb-2" data-i18n="hero_badge">คู่มือใช้ภายในนักเรียนแม่สายประสิทธิ์สาสตร์</span>
+      
+      <!-- โซนโลโก้พร้อมเอฟเฟกต์เรืองแสงและ Hover -->
+      <div class="hero-logo-container">
+        <img src="Neon GHOSTCORE Tech Emblem.png" alt="Portfolio Guide Pro Logo" class="hero-logo">
+      </div>
+
+      <span class="badge bg-primary px-3 py-2 rounded-pill mb-2" data-i18n="hero_badge">คู่มือใช้ภายในโรงเรียนทั่วประเทศ</span>
       <h1 class="h3 h1-md fw-bold mb-2" data-i18n="hero_title">ระบบคู่มือ <span class="text-accent">Portfolio</span> ครบวงจร</h1>
       <p class="small text-secondary mb-0" data-i18n="hero_subtitle">เลือกหมวดหมู่ที่ต้องการศึกษาเพื่อดูวิธีการเขียนและตัวอย่างการจัดหน้า</p>
     </div>
@@ -236,7 +258,7 @@
   <main class="container-fluid py-3 py-lg-4 px-2 px-md-3 px-lg-5">
     <div class="row g-3 g-lg-4">
       
-      <!-- ฝั่งซ้าย: โฆษณา (ซ่อนบนมือถือ แสดงเฉพาะหน้าจอใหญ่) -->
+      <!-- ฝั่งซ้าย: โฆษณา -->
       <div class="col-lg-2 d-none d-lg-block">
         <div class="ad-banner p-0 overflow-hidden shadow">
           <div id="adCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="10000">
@@ -260,7 +282,7 @@
         </div>
       </div>
 
-      <!-- ตรงกลาง: การ์ดเมนูเนื้อหาหลัก (ปรับ Grid ให้รองรับมือถือเต็ม 100%) -->
+      <!-- ตรงกลาง: เมนูเนื้อหาหลัก -->
       <div class="col-12 col-lg-8">
         <div class="row g-3 g-md-4">
           
@@ -344,7 +366,6 @@
             </a>
           </div>
 
-          <!-- ข้อ 11: ตรวจสอบเกียรติบัตร ถูก/ผิด -->
           <div class="col-12 col-sm-6 col-md-4">
             <a href="certificate-check.html" class="category-card highlight-yellow p-3 p-md-4">
               <div class="icon-box yellow-icon"><i class="bi bi-patch-check"></i></div>
@@ -363,7 +384,7 @@
 
         </div>
 
-        <!-- แบนเนอร์โฆษณาด้านล่าง (รองรับหน้าจอมือถือ) -->
+        <!-- แบนเนอร์โฆษณาด้านล่าง -->
         <div class="mt-4">
           <div class="bottom-banner-169 position-relative overflow-hidden shadow">
             <div id="bottomCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="10000">
@@ -398,7 +419,7 @@
 
       </div>
 
-      <!-- ฝั่งขวา: โฆษณา (ซ่อนบนมือถือ) -->
+      <!-- ฝั่งขวา: โฆษณา -->
       <div class="col-lg-2 d-none d-lg-block">
         <div class="ad-banner-right p-0 overflow-hidden shadow">
           <div id="rightAdCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="10000">
@@ -441,7 +462,7 @@
       th: {
         nav_home: "หน้าหลัก",
         nav_compare: "เปรียบเทียบมหาวิทยาลัย",
-        hero_badge: "คู่มือใช้ภายในนักเรียนแม่สายประสิทธิ์สาสตร์",
+        hero_badge: "คู่มือใช้ภายในโรงเรียนทั่วประเทศ",
         hero_title: 'ระบบคู่มือ <span class="text-accent">Portfolio</span> ครบวงจร',
         hero_subtitle: "เลือกหมวดหมู่ที่ต้องการศึกษาเพื่อดูวิธีการเขียนและตัวอย่างการจัดหน้า",
         c1_title: "1. วิธีทำหน้าปก",
@@ -470,7 +491,7 @@
       en: {
         nav_home: "Home",
         nav_compare: "Compare Universities",
-        hero_badge: "Internal Handbook for Mae Sai Prasitsat Students",
+        hero_badge: "Nationwide School Internal Manual",
         hero_title: 'Comprehensive <span class="text-accent">Portfolio</span> Guide',
         hero_subtitle: "Select a category to explore writing guidelines and layout examples",
         c1_title: "1. Cover Page",
@@ -499,7 +520,7 @@
       zh: {
         nav_home: "首页",
         nav_compare: "大学对比",
-        hero_badge: "湄赛普拉西萨特（Mae Sai Prasitsat）学校学生内部手册",
+        hero_badge: "全国学校内部使用手册",
         hero_title: '综合 <span class="text-accent">Portfolio</span> 指南系统',
         hero_subtitle: "选择一个类别以探索写作指南和排版示例",
         c1_title: "1. 封面制作",
@@ -544,17 +565,12 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-      // ตรวจสอบว่าใน Session เคยแสดงป๊อปอัปไปแล้วหรือยัง
       if (!sessionStorage.getItem('hasShownAnnouncement')) {
-      // ถ้ายังไม่เคยแสดง ให้สั่งให้ Modal เด้งขึ้นมา
-      var announcementModal = new bootstrap.Modal(document.getElementById('announcementModal'));
-      announcementModal.show();
-
-      // บันทึกไว้ว่าได้แสดงป๊อปอัปไปเรียบร้อยแล้ว
-     sessionStorage.setItem('hasShownAnnouncement', 'true');
-    }
+        var announcementModal = new bootstrap.Modal(document.getElementById('announcementModal'));
+        announcementModal.show();
+        sessionStorage.setItem('hasShownAnnouncement', 'true');
+      }
     });
-
   </script>
 </body>
 </html>

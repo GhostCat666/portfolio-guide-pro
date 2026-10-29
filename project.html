@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>วิธีเขียนโปรเจกต์ | Portfolio Guide Pro</title>
+  <link rel="icon" type="image/png" href="Neon GHOSTCORE Tech Emblem.png">
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -41,7 +42,6 @@
       border-radius: 16px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
-      height: 100%;
     }
     @media (min-width: 992px) {
       .content-card {
@@ -57,20 +57,41 @@
     .text-success-custom { color: var(--success); }
     .text-warning-custom { color: var(--warning); }
     
-    /* สไตล์สำหรับรูปภาพตัวอย่างด้านข้างให้ยืดหยุ่นบนมือถือ */
+    /* สไตล์สำหรับกล่องเลื่อนรูปภาพตรงกลาง */
+    .portfolio-slider-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) #334155;
+    }
+    .portfolio-slider-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-track {
+      background: #0f172a;
+      border-radius: 4px;
+    }
+    .portfolio-slider-container::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
     .portfolio-img {
       border: 2px solid #334155;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      display: block;
+      flex: 0 0 auto;
+      width: 240px;
+      height: auto;
+      object-fit: contain;
+      scroll-snap-align: center;
       background-color: #0f172a;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
     .portfolio-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
       border-color: var(--accent);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
@@ -163,7 +184,7 @@
     </div>
   </header>
 
-  <main class="container-fluid py-4 px-3 px-md-4 px-lg-5">
+  <main class="container py-4 px-3 px-md-4">
     
     <div class="mb-4">
       <a href="index.html" class="btn btn-back rounded-pill px-4 py-2 fw-bold">
@@ -171,41 +192,71 @@
       </a>
     </div>
 
-    <div class="row align-items-stretch g-4">
-      
-      <!-- คอลัมน์ซ้าย: รูป P1.png -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
-        <img src="รูปโปรเจค/P1.png" alt="Project Example 1" class="img-fluid portfolio-img">
-      </div>
+    <!-- ส่วนเนื้อหาหลักแบบกึ่งกลาง -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
 
-      <!-- คอลัมน์กลาง: เนื้อหาคำแนะนำหลัก -->
-      <div class="col-12 col-lg-6 d-flex flex-column gap-3">
+        <!-- 🖼️ กล่องเลื่อนดูรูปภาพตัวอย่างโปรเจกต์ (P1 และ P2 มารวมกันตรงนี้) -->
+        <div class="content-card">
+          <h5 class="fw-bold mb-3 text-accent" data-i18n="examples_title"><i class="bi bi-images me-2"></i>ตัวอย่างหน้าโปรเจกต์และผลงาน (เลื่อนดูรูปด้านข้างได้)</h5>
+          <div class="portfolio-slider-container">
+            <img src="รูปโปรเจค/P1.png" alt="Project Example 1" class="portfolio-img">
+            <img src="รูปโปรเจค/P2.png" alt="Project Example 2" class="portfolio-img">
+          </div>
+        </div>
         
         <!-- ที่มาของโครงงาน -->
         <div class="content-card">
           <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section0_title">📌 ที่มาและความสำคัญของโครงงาน</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s0_l1_title">จุดเริ่มต้นและแรงบันดาลใจ:</strong> <span class="text-secondary" data-i18n="s0_l1_desc">เล่าสตอรี่ว่าเราไปเจอสถานการณ์ ปัญหา หรือไอเดียนี้มาจากไหน (เช่น ไปเที่ยว, พบปัญหาในโรงเรียน หรือต่อยอดจากกิจกรรมสภานักเรียน)</span></li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s0_l2_title">การวิเคราะห์ปัญหา:</strong> <span class="text-secondary" data-i18n="s0_l2_desc">แสดงให้กรรมการเห็นกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ว่าทำไมปัญหาข้อนี้ถึงสำคัญและควรได้รับการแก้ไข</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s0_l1_title">จุดเริ่มต้นและแรงบันดาลใจ:</strong> <span class="text-secondary" data-i18n="s0_l1_desc">เล่าสตอรี่ว่าเราไปเจอสถานการณ์ ปัญหา หรือไอเดียนี้มาจากไหน (เช่น ไปเที่ยว, พบปัญหาในโรงเรียน หรือต่อยอดจากกิจกรรมสภานักเรียน)</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s0_l2_title">การวิเคราะห์ปัญหา:</strong> <span class="text-secondary" data-i18n="s0_l2_desc">แสดงให้กรรมการเห็นกระบวนการคิดวิเคราะห์อย่างเป็นระบบ ว่าทำไมปัญหาข้อนี้ถึงสำคัญและควรได้รับการแก้ไข</span></div>
+            </li>
           </ul>
         </div>
 
         <div class="content-card">
           <h3 class="fw-bold mb-4 border-bottom border-secondary pb-2 fs-5 fs-md-4" data-i18n="section1_title">โครงสร้างการนำเสนอโปรเจกต์ (5W1H & CAMPHUB)</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l1_title">WHAT (เราทำอะไร):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เขียนให้ชัดเจนว่าเป็นโครงงานอะไร ใครทำ พร้อมรูปถ่ายตอนลงมือทำจริง</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l2_title">WHERE & WHEN (ที่ไหนและเมื่อไหร่):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุสถานที่และช่วงเวลา พร้อมภาพประกอบกับสถานที่หรือเกียรติบัตร</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l3_title">HOW (ทำไมถึงเลือกทำ):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">เหตุผลและความตั้งใจในการเก็บเกี่ยวประสบการณ์</span></li>
-            <li class="mb-3"><i class="bi bi-check-circle-fill icon-bullet"></i> <strong data-i18n="s1_l4_title">WHY (ทำแล้วได้อะไร):</strong> <span class="text-secondary" data-i18n="s1_l4_desc">ผลลัพธ์ที่ช่วยแก้ปัญหาให้ตัวเราและสังคม พร้อมทักษะที่พัฒนาขึ้น</span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l1_title">WHAT (เราทำอะไร):</strong> <span class="text-secondary" data-i18n="s1_l1_desc">เขียนให้ชัดเจนว่าเป็นโครงงานอะไร ใครทำ พร้อมรูปถ่ายตอนลงมือทำจริง</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l2_title">WHERE & WHEN (ที่ไหนและเมื่อไหร่):</strong> <span class="text-secondary" data-i18n="s1_l2_desc">ระบุสถานที่และช่วงเวลา พร้อมภาพประกอบกับสถานที่หรือเกียรติบัตร</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l3_title">HOW (ทำไมถึงเลือกทำ):</strong> <span class="text-secondary" data-i18n="s1_l3_desc">เหตุผลและความตั้งใจในการเก็บเกี่ยวประสบการณ์</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill icon-bullet mt-1"></i> 
+              <div><strong data-i18n="s1_l4_title">WHY (ทำแล้วได้อะไร):</strong> <span class="text-secondary" data-i18n="s1_l4_desc">ผลลัพธ์ที่ช่วยแก้ปัญหาให้ตัวเราและสังคม พร้อมทักษะที่พัฒนาขึ้น</span></div>
+            </li>
           </ul>
         </div>
 
         <div class="content-card border-success">
           <h3 class="fw-bold mb-4 text-success-custom border-bottom border-success pb-2 fs-5 fs-md-4" data-i18n="section2_title">เทคนิคเพิ่มเติมให้โปรเจกต์ปัง</h3>
           <ul class="list-unstyled mb-0">
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l1_title">ใช้ Flowchart หรือผังงาน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">แสดงกระบวนการคิดและระบบการทำงานด้วยผังงาน เพื่อให้กรรมการเห็นระบบวิศวกรรมที่ชัดเจน</span></li>
-            <li class="mb-3"><i class="bi bi-star-fill text-success-custom me-2"></i> <strong data-i18n="s2_l2_title">ระบุอุปกรณ์และโค้ด:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แจกแจงฮาร์ดแวร์ (เช่น ESP32, เซนเซอร์) และภาษาโปรแกรมที่ใช้จริง</span></li>
-            <li class="mb-2"><i class="bi bi-qr-code text-success-custom me-2"></i> <strong data-i18n="s2_l3_title">🎥 QR Code วิดีโอสาธิต:</strong> <span class="text-secondary"><strong class="text-accent" data-i18n="s2_l3_highlight">สำคัญมาก!</strong> <span data-i18n="s2_l3_desc">ควรแนบคิวอาร์โค้ด (QR Code) สำหรับสแกนดูวิดีโอสาธิตการทำงานจริงของโปรเจกต์ เพื่อให้กรรมการเห็นภาพการใช้งานแบบ Real-time</span></span></li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l1_title">ใช้ Flowchart หรือผังงาน:</strong> <span class="text-secondary" data-i18n="s2_l1_desc">แสดงกระบวนการคิดและระบบการทำงานด้วยผังงาน เพื่อให้กรรมการเห็นระบบวิศวกรรมที่ชัดเจน</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-star-fill text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l2_title">ระบุอุปกรณ์และโค้ด:</strong> <span class="text-secondary" data-i18n="s2_l2_desc">แจกแจงฮาร์ดแวร์ (เช่น ESP32, เซนเซอร์) และภาษาโปรแกรมที่ใช้จริง</span></div>
+            </li>
+            <li class="mb-2 d-flex align-items-start">
+              <i class="bi bi-qr-code text-success-custom me-2 mt-1"></i> 
+              <div><strong data-i18n="s2_l3_title">🎥 QR Code วิดีโอสาธิต:</strong> <span class="text-secondary"><strong class="text-accent" data-i18n="s2_l3_highlight">สำคัญมาก!</strong> <span data-i18n="s2_l3_desc">ควรแนบคิวอาร์โค้ด (QR Code) สำหรับสแกนดูวิดีโอสาธิตการทำงานจริงของโปรเจกต์ เพื่อให้กรรมการเห็นภาพการใช้งานแบบ Real-time</span></span></div>
+            </li>
           </ul>
         </div>
 
@@ -228,12 +279,6 @@
         </div>
 
       </div>
-
-      <!-- คอลัมน์ขวา: รูป P2.png -->
-      <div class="col-12 col-lg-3 d-flex flex-column justify-content-center">
-        <img src="รูปโปรเจค/P2.png" alt="Project Example 2" class="img-fluid portfolio-img">
-      </div>
-
     </div>
   </main>
 
@@ -247,6 +292,7 @@
         nav_back: "กลับหน้าหลัก",
         page_title: 'วิธีเขียน <span class="text-accent">โปรเจกต์และผลงาน</span>',
         page_subtitle: "เทคนิคการเขียนที่มา โครงสร้าง 5W1H และการใส่ QR Code วิดีโอสาธิตให้ออกมาปังที่สุด",
+        examples_title: 'ตัวอย่างหน้าโปรเจกต์และผลงาน (เลื่อนดูรูปด้านข้างได้)',
         section0_title: "📌 ที่มาและความสำคัญของโครงงาน",
         s0_l1_title: "จุดเริ่มต้นและแรงบันดาลใจ:",
         s0_l1_desc: "เล่าสตอรี่ว่าเราไปเจอสถานการณ์ ปัญหา หรือไอเดียนี้มาจากไหน (เช่น ไปเที่ยว, พบปัญหาในโรงเรียน หรือต่อยอดจากกิจกรรมสภานักเรียน)",
@@ -280,6 +326,7 @@
         nav_back: "Back to Home",
         page_title: 'How to write <span class="text-accent">Projects & Works</span>',
         page_subtitle: "Techniques for background writing, 5W1H structure, and adding demo video QR codes",
+        examples_title: 'Project Examples (Scroll sideways to view)',
         section0_title: "📌 Project Background & Importance",
         s0_l1_title: "Origin & Inspiration:",
         s0_l1_desc: "Tell the story of where you encountered the problem or idea",
@@ -313,6 +360,7 @@
         nav_back: "返回首页",
         page_title: '如何撰写 <span class="text-accent">项目与作品 (Projects)</span>',
         page_subtitle: "背景写作技巧、5W1H 结构及添加演示视频二维码",
+        examples_title: '项目示例（可左右滑动查看）',
         section0_title: "📌 项目背景与重要性",
         s0_l1_title: "起点与灵感:",
         s0_l1_desc: "讲述您是在哪里遇到该问题或创意的",
